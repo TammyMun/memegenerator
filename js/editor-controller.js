@@ -3,12 +3,13 @@
 let gCanvas;
 let gCtx;
 let gText = 'Write your meme';
-let gCurrentImage = getObjectFromLocal('selectedImage');
+ 
 
 function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
+    gCurrentImage = getObjectFromLocal('selectedImage');
     renderCanvas('../' + gCurrentImage.src);
 }
 
@@ -34,6 +35,11 @@ function renderText(img) {
         gCtx.lineWidth = 2;
         gCtx.strokeText(gText, 50, 50);
     })
+}
+
+function downloadImg(elLink) {
+    var imgContent = canvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
 }
 
 function renderCanvas(imgSrc) {
