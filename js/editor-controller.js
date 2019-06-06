@@ -6,8 +6,6 @@ let gText = 'Write your meme';
 let gIsMouseClicked = false;
 let imgEl;
 
-
-
 function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
@@ -80,7 +78,7 @@ function onDeleteText() {
 function onResize() {
     console.log(document.getElementById('font-size').value);
     updateFontSize();
-    // renderCanvas('../' + gCurrentImage.src);
+    renderText(imgEl, textEditor);
 }
 
 function onChangeFont() {
