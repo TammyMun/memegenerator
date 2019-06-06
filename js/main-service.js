@@ -4,7 +4,7 @@ let gId = 100;
 let gImgs;
 let gFonts;
 
-function generateImages(){
+function generateImages() {
     gImgs = [
         new image(gId++, 'confused', 'img/001.jpg', []),
         new image(gId++, 'cat-on-laptop', 'img/002.jpg', []),
@@ -25,20 +25,38 @@ function generateImages(){
         new image(gId++, 'opra', 'img/017.jpg', []),
         new image(gId++, 'star-trek', 'img/018.jpg', []),
         new image(gId++, 'tell-me-more', 'img/019.jpg', []),
-        new image(gId++, 'putin', 'img/020.jpg' , [])
+        new image(gId++, 'putin', 'img/020.jpg', [])
     ]
     return gImgs;
 }
 
-function clearSelectedImage(){
+function clearSelectedImage() {
     localStorage.setItem('selectedImage', '');
 }
 
 function image(id, name, src, thumbnail, keywords) {
     this.id = id,
-    this.name = name,
-    this.src = src,
-    this.keywords = keywords,
-    this.thumbnail = thumbnail
+        this.name = name,
+        this.src = src,
+        this.keywords = keywords,
+        this.thumbnail = thumbnail,
+        this.design = {}
 }
 
+function changeColor() {
+    let currColor = document.getElementById('color-picked').value;
+    gCurrentImage.design.color = currColor;
+
+}
+
+function changeFont() {
+
+}
+
+function resize() {
+
+}
+
+function deleteText() {
+    
+}

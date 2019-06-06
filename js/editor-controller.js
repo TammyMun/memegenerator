@@ -36,16 +36,6 @@ function renderText(img) {
     })
 }
 
-function DynamicText(img) {
-    document.getElementById('name').addEventListener('keyup', function () {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        DrawOverlay(img);
-        DrawText();
-        text_title = this.value;
-        ctx.fillText(text_title, 50, 50);
-    });
-}
-
 function renderCanvas(imgSrc) {
     img = new Image();
     img.src = imgSrc;
@@ -58,3 +48,22 @@ function renderCanvas(imgSrc) {
     }
 }
 
+function onChangeColor() {
+    changeColor();
+    // render
+}
+
+function onDeleteText() {
+    deleteText();
+    // render
+}
+
+function onResize() {
+    resize()
+    // render
+}
+
+function onChangeFont() {
+    changeFont()
+    // render
+}
