@@ -15,11 +15,11 @@ function onInit() {
     gCurrentImage = getObjectFromLocal('selectedImage');
     imgEl = renderCanvas('../' + gCurrentImage.src);
     textEditor.addEventListener('keyup', ()=>{
-        renderText(imgEl, x=50, y=50, textEditor);
+        renderText(imgEl,textEditor, x=50, y=50);
     })
 }
 
-function renderText(img, x = 50, y = 50, element) {
+function renderText(img, element, x = 50, y = 50) {
         gCtx.clearRect(0, 0, canvas.width, canvas.height);
         gCtx.drawImage(img, 0, 0);
         gCtx.fillStyle = gCurrentImage.design.color;
@@ -44,14 +44,14 @@ function draw(ev) {
     if (gIsMouseClicked) {
         // gCtx.save()
         const { offsetX, offsetY } = ev
-        renderText(imgEl, offsetX, offsetY, document.getElementById('text-editor'))
+        renderText(imgEl,textEditor, offsetX, offsetY)
     }
     else return
 }
 
 function downloadImg(elLink) {
     var imgContent = canvas.toDataURL('image/jpeg');
-    elLink.href = imgContent
+    elLink.href = imgContent;
 }
 
 function renderCanvas(imgSrc) {
@@ -67,7 +67,7 @@ function renderCanvas(imgSrc) {
 
 function onChangeColor() {
     updateColor();
-    renderCanvas('../' + gCurrentImage.src);
+    renderText(imgEl, textEditor);
 }
 
 function onDeleteText() {
@@ -76,8 +76,8 @@ function onDeleteText() {
 }
 
 function onResize() {
-    resize()
-    // render
+    resize();
+    renderCanvas('../' + gCurrentImage.src);
 }
 
 function onChangeFont() {
