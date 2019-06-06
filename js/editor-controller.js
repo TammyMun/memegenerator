@@ -6,8 +6,6 @@ let gText = 'Write your meme';
 let gIsMouseClicked = false;
 let imgEl;
 
-
-
 function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
