@@ -4,6 +4,15 @@ let gCanvas;
 let gCtx;
 let gText;
 
+function onInit() {
+    gCanvas = document.getElementById('canvas');
+    gCtx = canvas.getContext('2d');
+    gImgs = getObjectFromLocal('images');
+    renderCanvas('../' + gImgs[0].src);
+    drawText();
+    renderText();
+}
+
 function drawText() {
     gCtx.fillStyle = "white";
     gCtx.textBaseline = 'middle';
@@ -19,16 +28,6 @@ function renderText() {
         gCtx.fillText(gText, 50, 50);
     })
 }
-
-function onInit() {
-    gCanvas = document.getElementById('canvas');
-    gCtx = canvas.getContext('2d');
-    gImgs = getObjectFromLocal('images');
-    renderCanvas('../' + gImgs[0].src);
-    drawText();
-    renderText();
-}
-
 
 function renderCanvas(imgSrc) {
     img = new Image();
