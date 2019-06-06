@@ -1,5 +1,5 @@
 'use-strict';
-
+const textEditor = document.getElementById('text-editor');
 let gCanvas;
 let gCtx;
 let gText = 'Write your meme';
@@ -14,20 +14,9 @@ function onInit() {
     gImgs = getObjectFromLocal('images');
     gCurrentImage = getObjectFromLocal('selectedImage');
     imgEl = renderCanvas('../' + gCurrentImage.src);
-    let textEditor = document.getElementById('text-editor')
     textEditor.addEventListener('keyup', ()=>{
         renderText(imgEl, x=50, y=50, textEditor);
     })
-}
-
-function drawText() { // might let go
-    gCtx.fillStyle = gCurrentImage.design.color;
-    gCtx.textBaseline = 'middle';
-    gCtx.font = "50px 'Impact'";
-    gCtx.fillText(gText, 50, 50);
-    gCtx.strokeStyle = 'black';
-    gCtx.lineWidth = 2;
-    gCtx.strokeText(gText, 50, 50);
 }
 
 function renderText(img, x = 50, y = 50, element) {
