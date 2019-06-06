@@ -53,10 +53,10 @@ function changeFont() {
 
 }
 
-// function resize() {
-//     let currSize = document.getElementById('size').value + 'px';
-//     gCurrentImage.design.size = currSize;
-// }
+function updateFontSize() {
+    let currSize = document.getElementById('font-size').value + 'px';
+    gCurrentImage.design.size = currSize;
+}
 
 function deleteText() {
     document.getElementById('text-editor').value = '';
