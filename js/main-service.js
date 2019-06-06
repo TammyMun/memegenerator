@@ -44,10 +44,9 @@ function image(id, name, src, thumbnail, keywords) {
         this.design = {}
 }
 
-function changeColor() {
+function updateColor() {
     let currColor = document.getElementById('color-picked').value;
     gCurrentImage.design.color = currColor;
-
 }
 
 function changeFont() {
@@ -59,5 +58,5 @@ function resize() {
 }
 
 function deleteText() {
-    
+    document.getElementById('text-editor').value = '';
 }

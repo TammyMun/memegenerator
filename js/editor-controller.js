@@ -3,18 +3,18 @@
 let gCanvas;
 let gCtx;
 let gText = 'Write your meme';
- 
 
 function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
     gCurrentImage = getObjectFromLocal('selectedImage');
+    updateColor();
     renderCanvas('../' + gCurrentImage.src);
 }
 
 function drawText() { // might let go
-    gCtx.fillStyle = "white";
+    gCtx.fillStyle = gCurrentImage.design.color;
     gCtx.textBaseline = 'middle';
     gCtx.font = "50px 'Impact'";
     gCtx.fillText(gText, 50, 50);
@@ -26,9 +26,8 @@ function drawText() { // might let go
 function renderText(img) {
     document.getElementById('text-editor').addEventListener('keyup', function () {
         gCtx.clearRect(0, 0, canvas.width, canvas.height);
-        console.log('test');
         gCtx.drawImage(img, 0, 0);
-        gCtx.fillStyle = "white";
+        gCtx.fillStyle = gCurrentImage.design.color;
         gCtx.textBaseline = 'middle';
         gCtx.font = "50px 'Impact'";
         // drawText();
@@ -52,19 +51,19 @@ function renderCanvas(imgSrc) {
     gCanvas.height = img.height;
     img.onload = function () {
         gCtx.drawImage(img, 0, 0);
-        drawText();
+        // drawText();
         renderText(img);
     }
 }
 
 function onChangeColor() {
-    changeColor();
-    // render
+    updateColor();
+    renderCanvas('../' + gCurrentImage.src);
 }
 
 function onDeleteText() {
     deleteText();
-    // render
+    renderCanvas('../' + gCurrentImage.src);
 }
 
 function onResize() {
