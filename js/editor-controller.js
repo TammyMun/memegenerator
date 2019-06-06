@@ -19,6 +19,7 @@ function onInit() {
     })
 }
 
+// will need to add gTexts[i] to renderText
 function renderText(img, element, x = 50, y = 50) {
     gCtx.clearRect(0, 0, canvas.width, canvas.height);
     gCtx.drawImage(img, 0, 0);
