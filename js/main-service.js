@@ -3,7 +3,7 @@
 let gId = 100;
 let gImgs;
 let gFonts;
-
+let gCurrentImage;
 
 function generateImages(){
     gImgs = [
