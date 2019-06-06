@@ -2,6 +2,8 @@
 
 let gId = 100;
 let gImgs;
+let gFonts;
+
 
 function generateImages(){
     gImgs = [
