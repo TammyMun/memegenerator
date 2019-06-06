@@ -12,7 +12,7 @@ function onInit() {
     gImgs = getObjectFromLocal('images');
     
     gCurrentImage = getObjectFromLocal('selectedImage');
-    imgEl = renderCanvas('../' + gCurrentImage.src);
+    imgEl = renderCanvas(gCurrentImage.src);
     updateColor();
     updateFontSize();
     textEditor.addEventListener('keyup', () => {
