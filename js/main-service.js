@@ -53,8 +53,8 @@ function changeFont() {
 
 }
 
-function resize() {
-    let currSize = document.getElementById('size').value + 'px';
+function updateFontSize() {
+    let currSize = document.getElementById('font-size').value + 'px';
     gCurrentImage.design.size = currSize;
 }
 

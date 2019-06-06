@@ -13,23 +13,25 @@ function onInit() {
     
     gCurrentImage = getObjectFromLocal('selectedImage');
     imgEl = renderCanvas('../' + gCurrentImage.src);
-    textEditor.addEventListener('keyup', ()=>{
-        renderText(imgEl,textEditor, x=50, y=50);
+    updateColor();
+    updateFontSize();
+    textEditor.addEventListener('keyup', () => {
+        renderText(imgEl, textEditor, x = 50, y = 50);
     })
     updateColor();
 }
 
 function renderText(img, element, x = 50, y = 50) {
-        gCtx.clearRect(0, 0, canvas.width, canvas.height);
-        gCtx.drawImage(img, 0, 0);
-        gCtx.fillStyle = gCurrentImage.design.color;
-        gCtx.textBaseline = 'middle';
-        gCtx.font = "50px 'Impact'";
-        gText = element.value;
-        gCtx.fillText(gText, x, y);
-        gCtx.strokeStyle = 'black';
-        gCtx.lineWidth = 2;
-        gCtx.strokeText(gText, x, y);
+    gCtx.clearRect(0, 0, canvas.width, canvas.height);
+    gCtx.drawImage(img, 0, 0);
+    gCtx.fillStyle = gCurrentImage.design.color;
+    gCtx.textBaseline = 'middle';
+    gCtx.font = `${gCurrentImage.design.size} 'Impact'`;
+    gText = element.value;
+    gCtx.fillText(gText, x, y);
+    gCtx.strokeStyle = 'black';
+    gCtx.lineWidth = 2;
+    gCtx.strokeText(gText, x, y);
 }
 
 function onStartDraw() {
@@ -44,7 +46,7 @@ function draw(ev) {
     if (gIsMouseClicked) {
         // gCtx.save()
         const { offsetX, offsetY } = ev
-        renderText(imgEl,textEditor, offsetX, offsetY)
+        renderText(imgEl, textEditor, offsetX, offsetY)
     }
     else return
 }
@@ -76,11 +78,12 @@ function onDeleteText() {
 }
 
 function onResize() {
-    resize();
-    renderCanvas('../' + gCurrentImage.src);
+    console.log(document.getElementById('font-size').value);
+    updateFontSize();
+    renderText(imgEl, textEditor);
 }
 
 function onChangeFont() {
-    changeFont()
+    // changeFont()
     // render
 }
