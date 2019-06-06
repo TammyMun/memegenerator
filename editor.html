@@ -10,14 +10,12 @@
 </head>
 
 <body onload="onInit()">
-    <h1>Bye</h1>
+    <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()" onmousemove="draw(event)"
+    id="canvas" width="300" height="300"></canvas>
 
-
-    <canvas id="canvas" width="300" height="300"></canvas>
-
-
-
-    <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
+    <div class="download-image">
+        <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
+    </div>
 
     <br />
     <label class="label" for="text-editor">Edit your text here</label>
@@ -25,10 +23,10 @@
     <!-- Optional set of controls: font family, font color, font size, L-R alignment, Up-
     Down alignment arrows, delete line. -->
     <div class="controls">
-    <button class="btn"></button>
-    <button class="btn"></button>
-    <button class="btn"></button>
-    <button class="btn"></button>
+        <input type="color" name="favcolor" value="#ffffff">
+        <button class="btn"></button>
+        <button class="btn"></button>
+        <button class="btn"></button>
     </div>
 
     <a href="index.html">Homepage</a>
