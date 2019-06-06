@@ -12,11 +12,13 @@ function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
+    
     gCurrentImage = getObjectFromLocal('selectedImage');
     imgEl = renderCanvas('../' + gCurrentImage.src);
     textEditor.addEventListener('keyup', ()=>{
         renderText(imgEl,textEditor, x=50, y=50);
     })
+    updateColor();
 }
 
 function renderText(img, element, x = 50, y = 50) {
