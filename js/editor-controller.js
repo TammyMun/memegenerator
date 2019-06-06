@@ -72,7 +72,7 @@ function renderCanvas(imgSrc) {
     gCanvas.height = img.height;
     img.onload = function () {
         gCtx.drawImage(img, 0, 0);
-        renderText(imgEl, offsetX, offsetY, document.getElementById('text-editor'))
+        renderText(imgEl, 50, 50, document.getElementById('text-editor'))
     }
     return img;
 }

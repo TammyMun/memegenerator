@@ -11,7 +11,7 @@
 
 <body onload="onInit()">
     <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()" onmousemove="draw(event)"
-    id="canvas" width="300" height="300"></canvas>
+        id="canvas" width="300" height="300"></canvas>
 
     <div class="download-image">
         <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
@@ -28,7 +28,8 @@
     <div class="controls">
         <input onchange="onChangeColor()" type="color" id="color-picked" value="#ffffff">
         <button onclick="onDeleteText()" class="btn">Delete</button>
-        <button class="btn font-size">Font size</button>
+        <input onchange="onResize()" type="range" id="font-size" name="size" min="20" max="100" value="50" step="40">
+        <label for="font-size">Font size</label>
         <button class="btn"></button>
     </div>
 
