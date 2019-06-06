@@ -1,8 +1,17 @@
 'use-strict';
 
+function onInit(){
+    generateImages();
+    saveObjectToLocal('images', gImgs);
+    // renderGallery(gImgs);s
 
-// renderGallery(gImgs);
+}
 
 function renderGallery(imgs) {
-    // gImgs
+    let gallery = document.querySelector('.main-gallery');
+    let strHtml = ''
+    imgs.forEach(image => {
+        strHtml = `<div id=${image.id}><img src="${image.src}" alt="${image.name}"/></div>`
+        gallery.innerHTML = strHtml;
+    });
 }

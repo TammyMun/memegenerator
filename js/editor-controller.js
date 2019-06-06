@@ -1,7 +1,5 @@
 'use-strict';
 
-console.log('tom connected');
-
 let gCanvas;
 let gCtx;
 
@@ -9,7 +7,8 @@ let gCtx;
 function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
-    renderCanvas(gImgs[0].url);
+    gImgs = getObjectFromLocal('images');
+    renderCanvas('../' + gImgs[0].src);
 }
 
 
