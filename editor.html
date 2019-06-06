@@ -10,14 +10,12 @@
 </head>
 
 <body onload="onInit()">
-    <h1>Bye</h1>
+    <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()" onmousemove="draw(event)"
+    id="canvas" width="300" height="300"></canvas>
 
-
-    <canvas id="canvas" width="300" height="300"></canvas>
-
-
-
-    <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
+    <div class="download-image">
+        <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
+    </div>
 
     <br>
     <div class="lines-container">

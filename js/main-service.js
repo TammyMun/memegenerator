@@ -37,11 +37,11 @@ function clearSelectedImage() {
 
 function image(id, name, src, thumbnail, keywords) {
     this.id = id,
-        this.name = name,
-        this.src = src,
-        this.keywords = keywords,
-        this.thumbnail = thumbnail,
-        this.design = {}
+    this.name = name,
+    this.src = src,
+    this.keywords = keywords,
+    this.thumbnail = thumbnail,
+    this.design = {}
 }
 
 function updateColor() {

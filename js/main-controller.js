@@ -1,14 +1,13 @@
 'use-strict';
 
-function onInit(){
+function onInit() {
     generateImages();
     clearSelectedImage();
     saveObjectToLocal('images', gImgs);
     renderGallery(gImgs);
-
 }
 
-function goToGenerator(id){
+function goToGenerator(id) {
     let selectedImage = getImageById(gImgs, id);
     saveObjectToLocal('selectedImage', selectedImage);
     window.location.href = 'editor.html';
