@@ -10,13 +10,15 @@ function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
+    
     gCurrentImage = getObjectFromLocal('selectedImage');
-    imgEl = renderCanvas('../' + gCurrentImage.src);
+    imgEl = renderCanvas(gCurrentImage.src);
     updateColor();
     updateFontSize();
     textEditor.addEventListener('keyup', () => {
         renderText(imgEl, textEditor, x = 50, y = 50);
     })
+    updateColor();
 }
 
 // will need to add gTexts[i] to renderText
