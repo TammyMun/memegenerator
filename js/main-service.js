@@ -29,6 +29,10 @@ function generateImages(){
     return gImgs;
 }
 
+function clearSelectedImage(){
+    localStorage.setItem('selectedImage', '');
+}
+
 function image(id, name, src, thumbnail, keywords){
     this.id = id,
     this.name = name,

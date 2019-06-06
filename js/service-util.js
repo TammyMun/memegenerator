@@ -9,3 +9,9 @@ function saveObjectToLocal(name, object){
 function getObjectFromLocal(objectName){
     return JSON.parse(localStorage.getItem(objectName));
 }
+
+function getImageById(array, id){
+    return array.find((object)=>{
+        return object.id === parseInt(id);
+    })
+}
