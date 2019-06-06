@@ -2,7 +2,7 @@
 
 let gCanvas;
 let gCtx;
-let gText = 'Edit your text here';
+let gText = 'Write your meme';
 let gCurrentImage = getObjectFromLocal('selectedImage');
 
 function onInit() {
@@ -17,8 +17,9 @@ function drawText() {
     gCtx.textBaseline = 'middle';
     gCtx.font = "50px 'Impact'";
     gCtx.fillText(gText, 50, 50);
-    gCtx.strokeStyle = "black";
-    gCtx.stroke();
+    gCtx.strokeStyle = 'black';
+    gCtx.lineWidth = 2;
+    gCtx.strokeText(gText, 50, 50);
 }
 
 function renderText(img) {
@@ -29,10 +30,11 @@ function renderText(img) {
         drawText();
         gText = this.value;
         gCtx.fillText(gText, 50, 50);
+        gCtx.strokeStyle = 'black';
+        gCtx.lineWidth = 2;
+        gCtx.strokeText(gText, 50, 50);
     })
 }
-
-
 
 function DynamicText(img) {
     document.getElementById('name').addEventListener('keyup', function () {
@@ -43,7 +45,6 @@ function DynamicText(img) {
         ctx.fillText(text_title, 50, 50);
     });
 }
-
 
 function renderCanvas(imgSrc) {
     img = new Image();
