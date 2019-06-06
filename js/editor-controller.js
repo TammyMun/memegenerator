@@ -13,7 +13,7 @@ function onInit() {
     renderCanvas('../' + gCurrentImage.src);
 }
 
-function drawText() {
+function drawText() { // might let go
     gCtx.fillStyle = "white";
     gCtx.textBaseline = 'middle';
     gCtx.font = "50px 'Impact'";
@@ -28,7 +28,10 @@ function renderText(img) {
         gCtx.clearRect(0, 0, canvas.width, canvas.height);
         console.log('test');
         gCtx.drawImage(img, 0, 0);
-        drawText();
+        gCtx.fillStyle = "white";
+        gCtx.textBaseline = 'middle';
+        gCtx.font = "50px 'Impact'";
+        // drawText();
         gText = this.value;
         gCtx.fillText(gText, 50, 50);
         gCtx.strokeStyle = 'black';
