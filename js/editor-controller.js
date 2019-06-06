@@ -21,7 +21,7 @@ function onInit() {
 }
 
 function drawText() { // might let go
-    gCtx.fillStyle = "white";
+    gCtx.fillStyle = gCurrentImage.design.color;
     gCtx.textBaseline = 'middle';
     gCtx.font = "50px 'Impact'";
     gCtx.fillText(gText, 50, 50);
@@ -33,7 +33,7 @@ function drawText() { // might let go
 function renderText(img, x = 50, y = 50, element) {
         gCtx.clearRect(0, 0, canvas.width, canvas.height);
         gCtx.drawImage(img, 0, 0);
-        gCtx.fillStyle = "white";
+        gCtx.fillStyle = gCurrentImage.design.color;
         gCtx.textBaseline = 'middle';
         gCtx.font = "50px 'Impact'";
         gText = element.value;
@@ -77,13 +77,13 @@ function renderCanvas(imgSrc) {
 }
 
 function onChangeColor() {
-    changeColor();
-    // render
+    updateColor();
+    renderCanvas('../' + gCurrentImage.src);
 }
 
 function onDeleteText() {
     deleteText();
-    // render
+    renderCanvas('../' + gCurrentImage.src);
 }
 
 function onResize() {

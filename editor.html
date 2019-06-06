@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tammy and Tom's Meme Generator</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -17,14 +17,17 @@
         <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
     </div>
 
-    <br />
+    <br>
+    <div class="lines-container">
+        
+    </div>
     <label class="label" for="text-editor">Edit your text here</label>
     <input class="editor" id="text-editor" type="text" value="" /><br>
     <!-- Optional set of controls: font family, font color, font size, L-R alignment, Up-
     Down alignment arrows, delete line. -->
     <div class="controls">
-        <input type="color" name="favcolor" value="#ffffff">
-        <button class="btn"></button>
+        <input onchange="onChangeColor()" type="color" id="color-picked" value="#ffffff">
+        <button onclick="onDeleteText()" class="btn">Delete</button>
         <button class="btn"></button>
         <button class="btn"></button>
     </div>
