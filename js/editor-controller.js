@@ -16,7 +16,7 @@ function onInit() {
 function drawText() { // might let go
     gCtx.fillStyle = gCurrentImage.design.color;
     gCtx.textBaseline = 'middle';
-    gCtx.font = "50px 'Impact'";
+    gCtx.font = `${gCurrentImage.design.size} 'Impact'`;
     gCtx.fillText(gText, 50, 50);
     gCtx.strokeStyle = 'black';
     gCtx.lineWidth = 2;
@@ -29,7 +29,7 @@ function renderText(img) {
         gCtx.drawImage(img, 0, 0);
         gCtx.fillStyle = gCurrentImage.design.color;
         gCtx.textBaseline = 'middle';
-        gCtx.font = "50px 'Impact'";
+        gCtx.font = `50px 'Impact'`;
         // drawText();
         gText = this.value;
         gCtx.fillText(gText, 50, 50);
@@ -41,7 +41,7 @@ function renderText(img) {
 
 function downloadImg(elLink) {
     var imgContent = canvas.toDataURL('image/jpeg');
-    elLink.href = imgContent
+    elLink.href = imgContent;
 }
 
 function renderCanvas(imgSrc) {
@@ -51,7 +51,7 @@ function renderCanvas(imgSrc) {
     gCanvas.height = img.height;
     img.onload = function () {
         gCtx.drawImage(img, 0, 0);
-        // drawText();
+        drawText();
         renderText(img);
     }
 }
@@ -67,8 +67,8 @@ function onDeleteText() {
 }
 
 function onResize() {
-    resize()
-    // render
+    resize();
+    renderCanvas('../' + gCurrentImage.src);
 }
 
 function onChangeFont() {

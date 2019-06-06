@@ -54,7 +54,8 @@ function changeFont() {
 }
 
 function resize() {
-
+    let currSize = document.getElementById('size').value + 'px';
+    gCurrentImage.design.size = currSize;
 }
 
 function deleteText() {
