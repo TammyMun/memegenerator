@@ -2,8 +2,7 @@
 let textEditor = document.getElementById('text-editor-1');
 let gCanvas;
 let gCtx;
-let gText = 'Write your meme';
-let gTextLines;
+let gTextLines = {1:'Write your meme'}
 let gIsMouseClicked = false;
 let imgEl;
 
@@ -20,17 +19,17 @@ function onInit() {
 }
 
 // will need to add gTexts[i] to renderText
-function renderText(img, element, x = 50, y = 50) {
+function renderText(img, element, x = 50, y = 50, textKey) {
     gCtx.clearRect(0, 0, canvas.width, canvas.height);
     gCtx.drawImage(img, 0, 0);
     gCtx.fillStyle = gCurrentImage.design.color;
     gCtx.textBaseline = 'middle';
     gCtx.font = `${gCurrentImage.design.size} 'Impact'`;
-    gText = element.value;
-    gCtx.fillText(gText, x, y);
+    gTextLines[textKey] = element.value;
+    gCtx.fillText(gTextLines[textKey], x, y);
     gCtx.strokeStyle = 'black';
     gCtx.lineWidth = 2;
-    gCtx.strokeText(gText, x, y);
+    gCtx.strokeText(gTextLines[textKey], x, y);
 }
 
 function onStartDraw() {
@@ -90,8 +89,9 @@ function addInput(elementId) {
 function changeListener(elementId){
     let id = getNumOutOfString(elementId);
     textEditor = document.querySelector('#text-editor-' + id);
+    renderText(imgEl, textEditor, x = 50, y = 50, id);
     textEditor.addEventListener('keyup', () => {
-        renderText(imgEl, textEditor, x = 50, y = 50);
+        renderText(imgEl, textEditor, x = 50, y = 50, id);
     })
 }
 
