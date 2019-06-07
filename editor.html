@@ -23,7 +23,7 @@
         <div class="controls" id="1">
             <div class="text-input-container">
                 <label class="label">Edit your text here</label>
-                <input class="editor" id="text-editor-1" type="text" value="" />
+                <input class="editor" id="text-editor-1" type="text" value=""  onfocus="changeListener(this.id)"/>
             </div>
             <input onchange="onChangeColor()" type="color" id="color-picked" value="#ffffff">
             <button onclick="onDeleteText()" class="btn">Delete</button>
@@ -35,20 +35,6 @@
         </div>
     </div>
 
-
-    <!-- <label class="label" for="text-editor">Edit your text here</label>
-    <input class="editor" id="text-editor" type="text" value="" /><br>
-     -->
-    <!-- Optional set of controls: font family, font color, font size, L-R alignment, Up-
-    Down alignment arrows, delete line. -->
-
-    <!-- <div class="controls" id="1">
-        <input onchange="onChangeColor()" type="color" id="color-picked" value="#ffffff">
-        <button onclick="onDeleteText()" class="btn">Delete</button>
-        <input onchange="onResize()" type="range" id="font-size" name="size" min="20" max="100" value="40" step="2">
-        <label for="font-size">Font size</label>
-        <button class="btn"></button>
-    </div> -->
     <a href="index.html">Homepage</a>
 
     <script src="js/service-util.js"></script>

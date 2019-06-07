@@ -15,3 +15,7 @@ function getImageById(array, id) {
         return object.id === parseInt(id);
     })
 }
+
+function getNumOutOfString(string){
+    return string.match(/\d+/g).map(Number)[0];
+}
