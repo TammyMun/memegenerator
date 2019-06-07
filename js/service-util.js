@@ -16,6 +16,10 @@ function getImageById(array, id) {
     })
 }
 
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+
 function getNumOutOfString(string){
     return string.match(/\d+/g).map(Number)[0];
 }

@@ -2,7 +2,7 @@
 let textEditor = document.getElementById('text-editor-1');
 let gCanvas;
 let gCtx;
-let gTextLines = {1:'Write your meme'}
+let gTextLines = {1:'Write your meme'};
 let gIsMouseClicked = false;
 let imgEl;
 
@@ -102,7 +102,7 @@ function onChangeColor() {
 
 function onDeleteText() {
     deleteText();
-    renderCanvas('../' + gCurrentImage.src);
+    renderCanvas(gCurrentImage.src);
 }
 
 function onResize() {
