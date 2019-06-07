@@ -54,10 +54,10 @@ function changeFont() {
 }
 
 function updateFontSize() {
-    let currSize = document.getElementById('font-size').value + 'px';
+    let currSize = document.getElementById('font-size-1').value + 'px';
     gCurrentImage.design.size = currSize;
 }
 
 function deleteText() {
-    document.getElementById('text-editor').value = '';
+    document.getElementById('text-editor-1').value = '';
 }

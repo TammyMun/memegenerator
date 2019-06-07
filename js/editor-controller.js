@@ -1,5 +1,5 @@
 'use-strict';
-const textEditor = document.getElementById('text-editor');
+const textEditor = document.getElementById('text-editor-1');
 let gCanvas;
 let gCtx;
 let gText = 'Write your meme';
@@ -10,8 +10,8 @@ function onInit() {
     gCanvas = document.getElementById('canvas');
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
-    
     gCurrentImage = getObjectFromLocal('selectedImage');
+
     imgEl = renderCanvas(gCurrentImage.src);
     updateColor();
     updateFontSize();
@@ -68,6 +68,27 @@ function renderCanvas(imgSrc) {
     return img;
 }
 
+function addInput(elementId) {
+    //extract number from id string
+    let id = elementId.match(/\d+/g).map(Number)[0];
+    let controlsContainer = document.querySelector('.lines-container');
+    strHtml = controlsContainer.innerHTML;
+    strHtml += `
+    <div class="controls" id="${id++}">
+        <div class="text-input-container">
+            <label class="label">Edit your text here</label>
+            <input class="editor" id="text-editor-${id++}" type="text" value=""/>
+        </div>
+        <input onchange="onChangeColor()" type="color" id="color-picked-${id++}" value="#ffffff">
+        <button onclick="onDeleteText()" class="btn">Delete</button>
+        <label for="font-size">Font size</label>
+        <input onchange="onResize()" type="range" id="font-size-${id++}" name="size" min="20" max="100" value="40"step="2">
+        <button class="btn"></button>
+        <button class="add-line-btn" id="line-${id++}" onclick="addInput(this.id)">Add line</button>
+    </div>`
+    controlsContainer.innerHTML = strHtml;
+}
+
 function onChangeColor() {
     updateColor();
     renderText(imgEl, textEditor);
@@ -79,7 +100,6 @@ function onDeleteText() {
 }
 
 function onResize() {
-    console.log(document.getElementById('font-size').value);
     updateFontSize();
     renderText(imgEl, textEditor);
 }
