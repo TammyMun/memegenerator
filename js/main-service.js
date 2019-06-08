@@ -7,26 +7,26 @@ let gCurrentImage;
 
 function generateImages() {
     gImgs = [
-        new image(gId++, 'confused', 'img/001.jpg', []),
-        new image(gId++, 'cat-on-laptop', 'img/002.jpg', []),
-        new image(gId++, 'come-on', 'img/003.jpg', []),
-        new image(gId++, 'kid-and-dog-sleeping', 'img/004.jpg', []),
-        new image(gId++, 'evil-quoting', 'img/005.jpg', []),
-        new image(gId++, 'evil-kid', 'img/006.jpg', []),
-        new image(gId++, 'african-kids-dancing', 'img/007.jpg', []),
-        new image(gId++, 'funny-face-trump', 'img/008.jpg', []),
-        new image(gId++, 'suprised-kid', 'img/009.jpg', []),
-        new image(gId++, 'streching-dog', 'img/010.jpg', []),
-        new image(gId++, 'obama-laughing', 'img/011.jpg', []),
-        new image(gId++, 'sports-kiss', 'img/012.jpg', []),
-        new image(gId++, 'lechaim', 'img/013.jpg', []),
-        new image(gId++, 'morphius', 'img/014.jpg', []),
-        new image(gId++, 'mountain-lady', 'img/015.jpg', []),
-        new image(gId++, 'lord-of-the-rings', 'img/016.jpg', []),
-        new image(gId++, 'opra', 'img/017.jpg', []),
-        new image(gId++, 'star-trek', 'img/018.jpg', []),
-        new image(gId++, 'tell-me-more', 'img/019.jpg', []),
-        new image(gId++, 'putin', 'img/020.jpg', [])
+        new image(gId++, 'confused', 'img/001.jpg', ['listen', 'funny hair']),
+        new image(gId++, 'cat-on-laptop', 'img/002.jpg', ['cats', 'sleep', 'computer', 'animals', 'cute']),
+        new image(gId++, 'come-on', 'img/003.jpg', ['come on', 'yelling', 'angry']),
+        new image(gId++, 'kid-and-dog-sleeping', 'img/004.jpg', ['animals', 'baby', 'kids', 'dogs', 'cute', 'sleep']),
+        new image(gId++, 'evil-quoting', 'img/005.jpg', ['evil', 'quote', 'bold']),
+        new image(gId++, 'evil-kid', 'img/006.jpg', ['kids', 'evil', 'laugh']),
+        new image(gId++, 'african-kids-dancing', 'img/007.jpg', ['african', 'kids', 'dance']),
+        new image(gId++, 'funny-face-trump', 'img/008.jpg', ['trump', 'president']),
+        new image(gId++, 'suprised-kid', 'img/009.jpg', ['kids', 'cute']),
+        new image(gId++, 'streching-dog', 'img/010.jpg', ['animals', 'dogs', 'cute', 'strech']),
+        new image(gId++, 'obama-laughing', 'img/011.jpg', ['obama', 'president']),
+        new image(gId++, 'sports-kiss', 'img/012.jpg', ['sports']),
+        new image(gId++, 'lechaim', 'img/013.jpg', ['leonardo dicaprio', 'cheers', 'actor', 'television']),
+        new image(gId++, 'morphius', 'img/014.jpg', ['matrix', 'morphius', 'sunglasses', 'actor']),
+        new image(gId++, 'mountain-lady', 'img/015.jpg', ['painting', 'mountains', 'dress', 'lady']),
+        new image(gId++, 'lord-of-the-rings', 'img/016.jpg', ['lord of the rings', 'one cannot simply']),
+        new image(gId++, 'opra', 'img/017.jpg', ['actor', 'television', 'opra']),
+        new image(gId++, 'star-trek', 'img/018.jpg', ['actor', 'star trek', 'television', 'laugh']),
+        new image(gId++, 'tell-me-more', 'img/019.jpg', ['tell me']),
+        new image(gId++, 'putin', 'img/020.jpg', ['putin', 'president'])
     ]
     return gImgs;
 }
@@ -35,7 +35,30 @@ function clearSelectedImage() {
     localStorage.setItem('selectedImage', '');
 }
 
-function image(id, name, src, thumbnail, keywords) {
+function getRandomKeyWords(numberOfWords){
+    let randomKeywords = [];
+    for(var i = 0; i < numberOfWords ; i++){
+        let imagesIndex = Math.floor(Math.random() * gImgs.length);
+        let keyword = {word: gImgs[imagesIndex].keywords[Math.floor(Math.random() * gImgs[imagesIndex].keywords.length)],
+        popularity: getRandomInteger(1, 10)};
+        let checkForWord = randomKeywords.find((word)=>{
+            return word.word === keyword.word;
+        })
+        //making sure words dont repeat
+        if(checkForWord) i--;
+        else randomKeywords.push(keyword);
+    }
+    return randomKeywords;
+}
+
+function filterImagesBy(filterWord){
+    let filtered = gImgs.filter((image)=>{
+        return image.keywords.indexOf(filterWord) > -1;
+    })
+    return filtered;
+}
+
+function image(id, name, src, keywords, thumbnail) {
     this.id = id,
     this.name = name,
     this.src = src,

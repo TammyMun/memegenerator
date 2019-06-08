@@ -2,10 +2,25 @@ h1 {
     color: blueviolet;
 }
 
-.main-gallery div img {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
+.key-words-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 980px;
+}
+
+.key-words-container div{
+    border-radius: 10px;
+    margin-left: 20px;
+    background-color: orchid;
+    cursor: pointer;
+    align-self: center;
+}
+
+.main-gallery div img{
+    width:100px;
+    height:100px;
+    margin:10px;
     object-fit: cover;
 }
 
