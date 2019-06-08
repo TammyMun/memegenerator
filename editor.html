@@ -10,6 +10,22 @@
 </head>
 
 <body onload="onInit()">
+    <header class="header">
+        <div class="container">
+            <h1>meme generator</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="list">
+                <li>Gallery</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </nav>
+
     <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()" onmousemove="draw(event)"
         id="canvas" width="300" height="300"></canvas>
 
@@ -23,7 +39,7 @@
         <div class="controls" id="1">
             <div class="text-input-container">
                 <label class="label">Edit your text here</label>
-                <input class="editor" id="text-editor-1" type="text" value=""  onfocus="changeListener(this.id)"/>
+                <input class="editor" id="text-editor-1" type="text" value="" onfocus="changeListener(this.id)" />
             </div>
             <input onchange="onChangeColor()" type="color" id="color-picked" value="#ffffff">
             <button onclick="onDeleteText()" class="btn">Delete</button>
@@ -37,6 +53,7 @@
 
     <a href="index.html">Homepage</a>
 
+    <footer>Tom Dorofeyev & Tammy Mundel copyrights</footer>
     <script src="js/service-util.js"></script>
     <script src="js/main-service.js"></script>
     <script src="js/editor-controller.js"></script>

@@ -81,6 +81,6 @@ function updateFontSize() {
     gCurrentImage.design.size = currSize;
 }
 
-function deleteText() {
+function deleteLine() {
     document.getElementById('text-editor-1').value = '';
 }

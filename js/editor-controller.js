@@ -100,8 +100,8 @@ function onChangeColor() {
     renderText(imgEl, textEditor);
 }
 
-function onDeleteText() {
-    deleteText();
+function onDeleteline() {
+    deleteLine();
     renderCanvas(gCurrentImage.src);
 }
 
