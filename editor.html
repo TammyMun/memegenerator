@@ -12,16 +12,18 @@
 <body onload="onInit()">
     <header class="header">
         <div class="container">
-            <h1>meme generator</h1>
+            <h1 class="editor-h1">meme generator</h1>
+            <h5>By Tammy & Tom</h5>
         </div>
     </header>
 
     <nav>
         <div class="container">
-            <ul class="list">
-                <li>Gallery</li>
-                <li>About</li>
-                <li>Contact</li>
+            <ul>
+                <li><a href="index.html">Gallery</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
+                <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
             </ul>
         </div>
     </nav>
@@ -51,9 +53,7 @@
         </div>
     </div>
 
-    <a href="index.html">Homepage</a>
-
-    <footer>Tom Dorofeyev & Tammy Mundel copyrights</footer>
+    <footer>&#169; Tom Dorofeyev & Tammy Mundel copyrights</footer>
     <script src="js/service-util.js"></script>
     <script src="js/main-service.js"></script>
     <script src="js/editor-controller.js"></script>

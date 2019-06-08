@@ -10,49 +10,38 @@
 </head>
 
 <body onload="onInit()">
-<<<<<<< HEAD
-=======
-    <h1>meme generator</h1>
-    <nav></nav>
-    <input list="images" onkeyup="onFilter(this.value)">
-    <datalist class="images-search-list" id="images"></datalist>
-
-
-    <div class="key-words-container"></div>
->>>>>>> 4f9dc44e3893cb00e886fa7ce9fd4b75d355ac52
-
-    <header class="header">
+    <header class="header slide-in-top">
         <div class="container">
-            <h1>meme generator</h1>
+            <h1 class="fade-in-top-shadow-drop">meme generator</h1>
             <h5>By Tammy & Tom</h5>
         </div>
     </header>
 
-    <nav>
+    <nav class="scale-in-ver-top">
         <div class="container">
-            <ul>
+            <ul class="fade-in-bck">
                 <li><a>Upload image</a></li>
                 <li><a>About</a></li>
                 <li><a>Contact</a></li>
+                <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
             </ul>
         </div>
     </nav>
-    <main class="main">
-        <div class="main-gallery container"></div>
+    <main class="main fade-in-bottom">
+        <div class="main-gallery container fade-in-bck-delay"></div>
     </main>
 
 
-
-
-
-
-
-    <div class="wrapper">
+    <div class="wrapper scale-in-ver-bottom">
+        <datalist class="images-search-list" id="images"></datalist>
         <div class="key-words-container"></div>
     </div>
 
-
-    <footer>Tom Dorofeyev & Tammy Mundel copyrights</footer>
+    <footer class="scale-in-ver-bottom-delay">
+        <div class="foot-text fade-in-bck-delay">
+            &#169; Tom Dorofeyev & Tammy Mundel
+        </div>
+    </footer>
 
     <script src="js/service-util.js"></script>
     <script src="js/main-service.js"></script>
