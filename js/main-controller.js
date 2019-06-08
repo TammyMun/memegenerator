@@ -7,24 +7,43 @@ function onInit() {
     let randomKeyWords = getRandomKeyWords(7);
     renderKeyWords(randomKeyWords);
     renderGallery(gImgs);
+    renderListInput(gImgs);
 }
 
-function goToGeneratorPage(id) {
+function navigateToGenerator(id) {
     let selectedImage = getImageById(gImgs, id);
     saveObjectToLocal('selectedImage', selectedImage);
     window.location.href = 'editor.html';
 }
 
+function renderListInput(images){
+    let elInputList = document.querySelector('.images-search-list');
+    let strHtml = '';
+    images.forEach((image)=>{
+        strHtml += `<option value="${image.name}">`
+        image.keywords.forEach((keyword)=>{
+            strHtml += `<option value="${keyword}">`
+        })
+    })
+    elInputList.innerHTML = strHtml;
+}
+
 function onFilter(filterWord){
-    let images = filterImagesBy(filterWord);
-    renderGallery(images);
+    if(!filterWord){
+        renderGallery(gImgs);
+        return;
+    } else{
+        let images = filterImagesBy(filterWord);
+        renderGallery(images);
+        return;
+    }
 }
 
 function renderGallery(imgs) {
     let gallery = document.querySelector('.main-gallery');
     let strHtml = ''
-    imgs.forEach((image, index) => {
-        strHtml += `<div id=${image.id} onclick="goToGeneratorPage(this.id)"><img src="${image.src}" alt="${image.name}"/></div>`
+    imgs.forEach((image) => {
+        strHtml += `<div id=${image.id} onclick="navigateToGenerator(this.id)"><img src="${image.src}" alt="${image.name}"/></div>`
         return strHtml;
     });
     gallery.innerHTML = strHtml;
