@@ -2,7 +2,6 @@
 let textEditor = document.getElementById('text-editor-1');
 let gCanvas;
 let gCtx;
-let gTextLines = {1:'Write your meme'};
 let gIsMouseClicked = false;
 let imgEl;
 
@@ -13,9 +12,8 @@ function onInit() {
     gCurrentImage = getObjectFromLocal('selectedImage');
 
     imgEl = renderCanvas(gCurrentImage.src);
-    updateColor();
     updateFontSize();
-    updateColor();
+    updateColor('#ffffff');
 }
 
 // will need to add gTexts[i] to renderText
@@ -95,8 +93,8 @@ function changeListener(elementId){
     })
 }
 
-function onChangeColor() {
-    updateColor();
+function onChangeColor(color) {
+    updateColor(color);
     renderText(imgEl, textEditor);
 }
 

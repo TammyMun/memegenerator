@@ -25,7 +25,7 @@
                 <label class="label">Edit your text here</label>
                 <input class="editor" id="text-editor-1" type="text" value=""  onfocus="changeListener(this.id)"/>
             </div>
-            <input onchange="onChangeColor()" type="color" id="color-picked" value="#ffffff">
+            <input onchange="onChangeColor(this.value)" type="color" id="color-picked" value="#ffffff">
             <button onclick="onDeleteText()" class="btn">Delete</button>
             <label for="font-size">Font size</label>
             <input onchange="onResize()" type="range" id="font-size-1" name="size" min="20" max="100" value="40"

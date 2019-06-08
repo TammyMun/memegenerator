@@ -4,6 +4,8 @@ let gId = 100;
 let gImgs;
 let gFonts;
 let gCurrentImage;
+let gTextLines = {1:'Write your meme'};
+let gTextLinesFoo = [{text:'Write your meme'}];
 
 function generateImages() {
     gImgs = [
@@ -67,9 +69,8 @@ function image(id, name, src, keywords, thumbnail) {
     this.design = {}
 }
 
-function updateColor() {
-    let currColor = document.getElementById('color-picked').value;
-    gCurrentImage.design.color = currColor;
+function updateColor(color) {
+    gCurrentImage.design.color = color;
 }
 
 function changeFont() {
