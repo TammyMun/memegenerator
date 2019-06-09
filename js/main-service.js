@@ -4,8 +4,8 @@ let gId = 100;
 let gImgs;
 let gFonts;
 let gCurrentImage;
-let gTextLines = {1:'Write your meme'};
-let gTextLinesFoo = [{text:'Write your meme'}];
+let gTextLinesFoo = {1:'Write your meme'};
+let gTextLines = [{text:'Write your meme'}, {text:'Write your foo'}];
 
 function generateImages() {
     gImgs = [
