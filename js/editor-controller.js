@@ -2,7 +2,6 @@
 let textEditor = document.getElementById('text-editor-1');
 let gCanvas;
 let gCtx;
-let gTextLines = {1:'Write your meme'};
 let gIsMouseClicked = false;
 let imgEl;
 
@@ -13,23 +12,21 @@ function onInit() {
     gCurrentImage = getObjectFromLocal('selectedImage');
 
     imgEl = renderCanvas(gCurrentImage.src);
-    updateColor();
-    updateFontSize();
-    updateColor();
+    updateFontSize(40, 0);
+    updateColor('#ffffff', 0);
 }
 
-// will need to add gTexts[i] to renderText
-function renderText(img, element, x = 50, y = 50, textKey) {
+function renderText(img, element, x = 50, y = 50, textIndex) {
     gCtx.clearRect(0, 0, canvas.width, canvas.height);
     gCtx.drawImage(img, 0, 0);
-    gCtx.fillStyle = gCurrentImage.design.color;
+    gCtx.fillStyle = gTextLines[textIndex].color;
     gCtx.textBaseline = 'middle';
-    gCtx.font = `${gCurrentImage.design.size} 'Impact'`;
-    gTextLines[textKey] = element.value;
-    gCtx.fillText(gTextLines[textKey], x, y);
+    gCtx.font = `${gTextLines[textIndex].fontSize} 'Impact'`;
+    gTextLines[textIndex].text = element.value;
+    gCtx.fillText(gTextLines[textIndex].text, x, y);
     gCtx.strokeStyle = 'black';
     gCtx.lineWidth = 2;
-    gCtx.strokeText(gTextLines[textKey], x, y);
+    gCtx.strokeText(gTextLines[textIndex].text, x, y);
 }
 
 function onStartDraw() {
@@ -43,7 +40,9 @@ function onStopDraw() {
 function draw(ev) {
     if (gIsMouseClicked) {
         const { offsetX, offsetY } = ev
-        renderText(imgEl, textEditor, offsetX, offsetY)
+        gCurrentText.x = offsetX;
+        gCurrentText.y = offsetY;
+        renderText(imgEl, textEditor, offsetX, offsetY, gCurrentText.index);
     }
     else return
 }
@@ -69,6 +68,7 @@ function addInput(elementId) {
     let id = getNumOutOfString(elementId);
     id++
     let controlsContainer = document.querySelector('.lines-container');
+    gTextLines.push({});
     strHtml = controlsContainer.innerHTML;
     strHtml += `
     <div class="controls" id="${id}">
@@ -76,10 +76,10 @@ function addInput(elementId) {
             <label class="label">Edit your text here</label>
             <input class="editor" id="text-editor-${id}" type="text" value="" onfocus="changeListener(this.id)"/>
         </div>
-        <input onchange="onChangeColor()" type="color" id="color-picked-${id}" value="#ffffff">
+        <input onchange="onChangeColor(this.value, this.className)" class="color-picker-${id}" type="color" id="color-picked-${id}" value="#ffffff">
         <button onclick="onDeleteText()" class="btn">Delete</button>
         <label for="font-size">Font size</label>
-        <input onchange="onResize()" type="range" id="font-size-${id}" name="size" min="20" max="100" value="40"step="2">
+        <input onchange="onResize(this.value, this.id)" type="range" id="font-size-${id}" name="size" min="20" max="100" value="40"step="2">
         <button class="btn"></button>
         <button class="add-line-btn" id="line-${id}" onclick="addInput(this.id)">Add line</button>
     </div>`
@@ -89,15 +89,17 @@ function addInput(elementId) {
 function changeListener(elementId){
     let id = getNumOutOfString(elementId);
     textEditor = document.querySelector('#text-editor-' + id);
-    renderText(imgEl, textEditor, x = 50, y = 50, id);
+    gCurrentText.index = --id;
+    renderText(imgEl, textEditor, x = 50, y = 50, gCurrentText.index);
     textEditor.addEventListener('keyup', () => {
-        renderText(imgEl, textEditor, x = 50, y = 50, id);
+        renderText(imgEl, textEditor, x = 50, y = 50, gCurrentText.index);
     })
 }
 
-function onChangeColor() {
-    updateColor();
-    renderText(imgEl, textEditor);
+function onChangeColor(color, className) {
+    let indexToChange = getNumOutOfString(className) - 1;
+    updateColor(color, indexToChange);
+    renderText(imgEl, textEditor, gCurrentText.x,gCurrentText.y, indexToChange);
 }
 
 function onDeleteline() {
@@ -105,9 +107,10 @@ function onDeleteline() {
     renderCanvas(gCurrentImage.src);
 }
 
-function onResize() {
-    updateFontSize();
-    renderText(imgEl, textEditor);
+function onResize(value, id) {
+    let index = getNumOutOfString(id) - 1;
+    updateFontSize(value, index);
+    renderText(imgEl, textEditor, gCurrentText.x,gCurrentText.y,index);
 }
 
 function onChangeFont() {

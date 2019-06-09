@@ -17,7 +17,7 @@ h1 {
     margin: 0 auto;
     font-family: 'Kelly Slab', sans-serif;
     font-size: 5rem;
-    max-height: 100px;
+    max-height: 30rem;
     text-transform: uppercase;
     /* text-shadow: 3px 2px 3px rgba(255, 255, 255, .2); */
 }

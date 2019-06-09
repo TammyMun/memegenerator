@@ -4,7 +4,8 @@ let gId = 100;
 let gImgs;
 let gFonts;
 let gCurrentImage;
-// let gTextLines = [{text:'Write your meme'}, {text:'Write your foo'}];
+let gCurrentText = {index:0, x:50, y:50};
+let gTextLines = [{text:'Write your meme'}];
 
 function generateImages() {
     gImgs = [
@@ -64,22 +65,21 @@ function image(id, name, src, keywords, thumbnail) {
     this.name = name,
     this.src = src,
     this.keywords = keywords,
-    this.thumbnail = thumbnail,
-    this.design = {}
+    this.thumbnail = thumbnail
 }
 
-function updateColor() {
-    let currColor = document.getElementById('color-picked').value;
-    gCurrentImage.design.color = currColor;
+function updateColor(color, index) {
+    gTextLines[index].color = color;
 }
 
 function changeFont() {
 
 }
 
-function updateFontSize() {
-    let currSize = document.getElementById('font-size-1').value + 'px';
-    gCurrentImage.design.size = currSize;
+function updateFontSize(value, index) {
+    let currSize = value + 'px';
+    console.log(index);
+    gTextLines[index].fontSize = currSize;
 }
 
 function deleteLine() {
