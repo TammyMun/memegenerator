@@ -5,7 +5,7 @@ let gImgs;
 let gFonts;
 let gCurrentImage;
 let gCurrentText = {index:0, x:50, y:50};
-let gTextLines = [{text:'Write your meme'}, {text:'Write your foo'}];
+let gTextLines = [{text:'Write your meme'}];
 
 function generateImages() {
     gImgs = [
@@ -78,6 +78,7 @@ function changeFont() {
 
 function updateFontSize(value, index) {
     let currSize = value + 'px';
+    console.log(index);
     gTextLines[index].fontSize = currSize;
 }
 
