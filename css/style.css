@@ -74,6 +74,14 @@ nav ul a, nav ul a:visited {
     position: relative;
     bottom: 2px;
 }
+.search-box {
+    outline: none;
+    /* padding: 8px; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-left: 8px;
+}
 
 nav ul {
     display: flex;
@@ -143,7 +151,7 @@ footer {
 .modal-window {
     position: fixed;
     background-color: rgba(255, 255, 255, 0.25);
-    top: 0;
+    top: -690px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -159,7 +167,7 @@ footer {
 } */
 
 .modal-window>div {
-    width: 400px;
+    width: 80vw;
     position: absolute;
     border-radius: 4px;
     top: 50%;
@@ -493,7 +501,7 @@ small {
 /* Inputs */
 
 input[type=text], select {
-    width: 20em;
+    width: 70vw;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -504,7 +512,7 @@ input[type=text], select {
 }
 
 input[type=textarea] {
-    width: 20em;
+    width: 70vw;
     outline: none;
     padding: 8px;
     border: 1px solid #ccc;
@@ -528,21 +536,28 @@ input[type=submit] {
     font-size: 20px;
 }
 
-input[type=color] {}
+input[type=color] {
 
-input[type=range] {}
+}
+
+input[type=range] {
+
+}
 
 @media only screen and (min-width: 450px) {
     h1 {
         font-size: 3rem;
     }
-
-    header{
+    header {
         max-height: 60px;
     }
     .main-gallery div img {
         width: 100px;
         height: 100px;
+    }
+    .modal-window {
+        position: fixed;
+        top: -670px;
     }
 }
 
@@ -562,6 +577,19 @@ input[type=range] {}
         width: 130px;
         height: 130px;
     }
+    .modal-window>div {
+        width: 400px;
+    }
+    .modal-window {
+        position: fixed;
+        top: 0px;
+    }
+    input[type=textarea] {
+        width: 30em;
+    }
+    input[type=text], select {
+        width: 30em;
+    }
 }
 
 @media only screen and (min-width: 805px) {
@@ -575,5 +603,8 @@ input[type=range] {}
     .main-gallery div img {
         width: 150px;
         height: 150px;
+    }
+    .modal-window>div {
+        width: 400px;
     }
 }
