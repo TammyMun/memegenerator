@@ -16,23 +16,23 @@ function navigateToGenerator(id) {
     window.location.href = 'editor.html';
 }
 
-function renderListInput(images){
+function renderListInput(images) {
     let elInputList = document.querySelector('.images-search-list');
     let strHtml = '';
-    images.forEach((image)=>{
+    images.forEach((image) => {
         strHtml += `<option value="${image.name}">`
-        image.keywords.forEach((keyword)=>{
+        image.keywords.forEach((keyword) => {
             strHtml += `<option value="${keyword}">`
         })
     })
     elInputList.innerHTML = strHtml;
 }
 
-function onFilter(filterWord){
-    if(!filterWord){
+function onFilter(filterWord) {
+    if (!filterWord) {
         renderGallery(gImgs);
         return;
-    } else{
+    } else {
         let images = filterImagesBy(filterWord);
         renderGallery(images);
         return;
@@ -49,13 +49,22 @@ function renderGallery(imgs) {
     gallery.innerHTML = strHtml;
 }
 
-function renderKeyWords(keywords){
+function renderKeyWords(keywords) {
     let elKeyWordsContainer = document.querySelector('.key-words-container');
     let strHtml = '';
-    for(var i = 0; i < keywords.length; i++){
+    for (var i = 0; i < keywords.length; i++) {
         strHtml += `<div class="${keywords[i].word}" onclick="onFilter(this.className)"
         style="font-size:${keywords[i].popularity * 5}px">
         ${keywords[i].word}</div>`
     }
     elKeyWordsContainer.innerHTML = strHtml;
 }
+
+$('.form-contact-submit').onclick(() => {
+    var text = $('.contact-me-text').val();
+    var subject = $('.contact-me-subject').val();
+    var userEmail = $('.contact-me-user-email').val();
+    var url = `https://mail.google.com/mail/?view=cm&fs=1&to=tomdorofey@gmail.com&su=${subject}&body=${text}`
+    window.open(url);
+})
+

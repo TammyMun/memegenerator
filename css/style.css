@@ -80,6 +80,7 @@ footer {
     background: #ffbb00;
     padding: 20px;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .wrapper {
@@ -120,6 +121,79 @@ footer {
     /* max-width: 980px; */
     flex-wrap: wrap;
 }
+
+.modal-window {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.25);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.modal-window:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window>div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: #ffffff;
+}
+
+.modal-window header {
+    font-weight: bold;
+}
+
+.modal-window h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+}
+
+.modal-close {
+    color: #aaa;
+    line-height: 50px;
+    font-size: 80%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+}
+
+.modal-close:hover {
+    color: black;
+}
+
+.modal-window div:not(:last-of-type) {
+    margin-bottom: 15px;
+}
+
+small {
+    color: #aaa;
+}
+
+/* .btn {
+    background-color: #fff;
+    padding: 1em 1.5em;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.btn i {
+    padding-right: 0.3em;
+} */
 
 /* animations */
 
@@ -349,7 +423,6 @@ footer {
     -webkit-animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
     animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
 }
-
 
 @-webkit-keyframes slide-in-fwd-center {
     0% {

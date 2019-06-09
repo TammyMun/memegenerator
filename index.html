@@ -22,7 +22,7 @@
             <ul class="fade-in-bck">
                 <li><a>Upload image</a></li>
                 <li><a>About</a></li>
-                <li><a>Contact</a></li>
+                <li><a href="#open-modal">Contact</a></li>
                 <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
             </ul>
         </div>
@@ -37,9 +37,29 @@
         <div class="key-words-container slide-in-fwd-center"></div>
     </div>
 
+    <div id="open-modal" class="modal-window">
+        <div>
+            <a href="#" title="Close" class="modal-close">Close</a>
+            <h1>Voilà!</h1>
+            <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful.</div>
+            <form action="https://mail.google.com/mail/?view=cm&fs=1&to=tammylimited@gmail.com&tomdorofey@gmail.com&su=${subject}&body=${text}" target="_blank">
+
+                <!-- <label for="name">Full Name</label> -->
+                <!-- <input type="text" id="name" name="name" placeholder="Your name.."><br> -->
+                <label for="subject">Subject</label><br>
+                <input type="text" id="contact-me-subject" name="subject"><br>
+                <label for="mail-body">Enter your mail</label><br>
+                <input class="contact-me-text" type="text" name="mail-body"><br>
+                <input class="form-contact-submit" type="submit" name="submit" value="Send">
+            </form>
+            <div><small>Something else</small></div>
+        </div>
+    </div>
+    </div>
+
     <footer class="scale-in-ver-bottom-delay">
         <div class="foot-text slide-in-fwd-center-delay">
-            &#169; Tom Dorofeyev & Tammy Mundel 2019
+            &#169; 2019 Tom Dorofeyev & Tammy Mundel
         </div>
     </footer>
 
