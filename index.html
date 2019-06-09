@@ -10,55 +10,58 @@
 </head>
 
 <body onload="onInit()">
-    <header class="header slide-in-top">
-        <div class="container">
-            <div class="h1-container">
-                <h1 class="fade-in-top-shadow-drop">meme generator</h1>
+    <div class="body-container">
+        <header class="header slide-in-top">
+            <div class="container">
+                <div class="h1-container">
+                    <h1 class="fade-in-top-shadow-drop">meme generator</h1>
+                </div>
+                <div class="h4-container">
+                    <h4 class="fade-in-top-shadow-drop">By Tammy & Tom</h4>
+                </div>
             </div>
-            <div class="h4-container">
-                <h4 class="fade-in-top-shadow-drop">By Tammy & Tom</h4>
+        </header>
+
+        <nav class="scale-in-ver-top">
+            <div class="container">
+                <ul class="fade-in-bck">
+                    <li><a>Upload image</a></li>
+                    <li><a>About</a></li>
+                    <li><a href="#open-modal">Contact</a></li>
+                    <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main fade-in-bottom">
+            <div class="main-gallery container fade-in-bck-delay"></div>
+
+
+            <div class="wrapper scale-in-ver-bottom">
+                <datalist class="images-search-list" id="images"></datalist>
+                <div class="key-words-container slide-in-fwd-center"></div>
+            </div>
+        </main>
+
+        <div id="open-modal" class="modal-window">
+            <div>
+                <a href="#" title="Close" onclick="stopPropagation()" class="modal-close">Close</a>
+                <h1>email us</h1>
+                <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful.</div>
+                <form>
+
+                    <!-- <label for="email">From:</label><br>
+                    <input type="email" class="contact-me-user-email" id="name" name="email" placeholder="Your Email..."><br> -->
+                    <label for="subject">Subject</label><br>
+                    <input type="text" class="contact-me-subject" name="subject" value=""><br>
+                    <label for="mail-body">Enter your mail</label><br>
+                    <input class="contact-me-text" type="text" name="mail-body" value=""><br>
+                    <input class="form-contact-submit" type="submit" name="submit" value="Send in Gmail"
+                        onclick="sendMail(event)">
+                </form>
+                <div><small>Something else</small></div>
             </div>
         </div>
-    </header>
-
-    <nav class="scale-in-ver-top">
-        <div class="container">
-            <ul class="fade-in-bck">
-                <li><a>Upload image</a></li>
-                <li><a>About</a></li>
-                <li><a href="#open-modal">Contact</a></li>
-                <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
-            </ul>
-        </div>
-    </nav>
-    <main class="main fade-in-bottom">
-        <div class="main-gallery container fade-in-bck-delay"></div>
-    </main>
-
-
-    <div class="wrapper scale-in-ver-bottom">
-        <datalist class="images-search-list" id="images"></datalist>
-        <div class="key-words-container slide-in-fwd-center"></div>
-    </div>
-
-    <div id="open-modal" class="modal-window">
-        <div>
-            <a href="#" title="Close" onclick="stopPropagation()" class="modal-close">Close</a>
-            <h1>email us</h1>
-            <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful.</div>
-            <form>
-
-                <!-- <label for="email">From:</label><br>
-                <input type="email" class="contact-me-user-email" id="name" name="email" placeholder="Your Email..."><br> -->
-                <label for="subject">Subject</label><br>
-                <input type="text" class="contact-me-subject" name="subject" value=""><br>
-                <label for="mail-body">Enter your mail</label><br>
-                <input class="contact-me-text" type="text" name="mail-body" value=""><br>
-                <input class="form-contact-submit" type="submit" name="submit" value="Send in Gmail" onclick="sendMail(event)">
-            </form>
-            <div><small>Something else</small></div>
-        </div>
-    </div>
     </div>
 
     <footer class="scale-in-ver-bottom-delay">
@@ -66,6 +69,7 @@
             &#169; 2019 Tom Dorofeyev & Tammy Mundel
         </div>
     </footer>
+    </div>
 
     <script src="js/service-util.js"></script>
     <script src="js/main-service.js"></script>

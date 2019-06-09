@@ -62,12 +62,11 @@ function renderKeyWords(keywords) {
 
 function sendMail(ev) {
     ev.preventDefault();
-    var text = document.querySelector('.contact-me-text').value;
+    let text = document.querySelector('.contact-me-text').value;
     console.log(text);
     
-    var subject = document.querySelector('.contact-me-subject').value;
-    var userEmail = document.querySelector('.contact-me-user-email').value;
-    var url = `https://mail.google.com/mail/?view=cm&fs=1&to=tomdorofey@gmail.com&cc=tammylimited@gmail.com&su=${subject}&body=${text}`
+    let subject = document.querySelector('.contact-me-subject').value;
+    let url = `https://mail.google.com/mail/?view=cm&fs=1&to=tomdorofey@gmail.com&cc=tammylimited@gmail.com&su=${subject}&body=${text}`
     window.open(url);
 }
 
