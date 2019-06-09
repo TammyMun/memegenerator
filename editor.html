@@ -43,10 +43,10 @@
                 <label class="label">Edit your text here</label>
                 <input class="editor" id="text-editor-1" type="text" value="" onfocus="changeListener(this.id)" />
             </div>
-            <input onchange="onChangeColor(this.value)" type="color" id="color-picked" value="#ffffff">
+            <input onchange="onChangeColor(this.value, this.className)" class="color-picker-1" type="color" id="color-picked" value="#ffffff">
             <button onclick="onDeleteText()" class="btn">Delete</button>
             <label for="font-size">Font size</label>
-            <input onchange="onResize()" type="range" id="font-size-1" name="size" min="20" max="100" value="40"
+            <input onchange="onResize(this.value, this.id)" type="range" id="font-size-1" name="size" min="20" max="100" value="40"
                 step="2">
             <button class="btn"></button>
             <button class="add-line-btn" id="line-1" onclick="addInput(this.id)">Add line</button>
