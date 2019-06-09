@@ -124,7 +124,7 @@ footer {
 }
 
 .main-gallery div img {
-    width: 150px;
+    width: 40vw;
     height: 150px;
     margin: 10px;
     cursor: pointer;
