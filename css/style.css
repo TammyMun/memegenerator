@@ -1,5 +1,4 @@
 @import url("fonts.css");
-
 html {
     box-sizing: border-box;
 }
@@ -9,10 +8,10 @@ body {
     font-family: 'Questrial', sans-serif;
 }
 
-.body-container{
-    display:flex;
+.body-container {
+    display: flex;
     flex-direction: column;
-    height:100vh;
+    height: 100vh;
 }
 
 .container {
@@ -30,7 +29,7 @@ h1 {
     /* text-shadow: 3px 2px 3px rgba(255, 255, 255, .2); */
 }
 
-.h4-container{
+.h4-container {
     display: none;
 }
 
@@ -46,7 +45,7 @@ header {
     justify-content: center;
     justify-items: center;
     flex-grow: 2;
-    max-height: 70px;
+    max-height: 100px;
 }
 
 nav {
@@ -88,9 +87,9 @@ nav .container {
 
 main {
     background: #3f681c;
-    flex-grow: 3;
-    display:flex;
+    display: flex;
     flex-direction: column;
+    flex-grow: 3;
 }
 
 footer {
@@ -98,7 +97,7 @@ footer {
     padding: 20px;
     text-align: center;
     margin-bottom: 0;
-    flex-grow: 1;
+    flex-grow: 0;
 }
 
 .wrapper {
@@ -124,8 +123,8 @@ footer {
 }
 
 .main-gallery div img {
-    width: 40vw;
-    height: 150px;
+    width: 80px;
+    height: 80px;
     margin: 10px;
     cursor: pointer;
     object-fit: cover;
@@ -159,15 +158,16 @@ footer {
     pointer-events: auto;
 }
 
-.modal-window > div {
+.modal-window>div {
     width: 400px;
     position: absolute;
+    border-radius: 4px;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     padding: 2em;
-    background: #ffffff;
+    background: #fb6542;
 }
 
 .modal-window header {
@@ -203,16 +203,13 @@ small {
     color: #aaa;
 }
 
-/* .btn {
+.btn {
     background-color: #fff;
-    padding: 1em 1.5em;
+    padding: 0.5em 1em;
     border-radius: 3px;
     text-decoration: none;
+    margin: 5px;
 }
-
-.btn i {
-    padding-right: 0.3em;
-} */
 
 /* animations */
 
@@ -492,35 +489,86 @@ small {
     }
 }
 
-@media only screen and (min-width: 450px){
-    h1{
-        font-size: 3rem; 
+/* Inputs */
+
+input[type=text], select {
+    width: 20em;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    outline: none;
+}
+
+input[type=textarea] {
+    width: 20em;
+    outline: none;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+input[type=submit] {
+    cursor: pointer;
+    background: #ffbb00;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-family: inherit;
+    font-size: 20px;
+}
+
+input[type=color] {}
+
+input[type=range] {}
+
+@media only screen and (min-width: 450px) {
+    h1 {
+        font-size: 3rem;
+    }
+    .main-gallery div img {
+        width: 100px;
+        height: 100px;
     }
 }
 
-@media only screen and (min-width: 700px){
-    header{
-        max-height:100px;
+@media only screen and (min-width: 700px) {
+    header {
+        max-height: 100px;
         padding-bottom: 38px;
     }
-
-    .h4-container{
+    .h4-container {
         display: block;
     }
-
-    h1{
-        margin-top:15px;
-        font-size: 4rem; 
+    h1 {
+        margin-top: 15px;
+        font-size: 4rem;
+    }
+    .main-gallery div img {
+        width: 130px;
+        height: 130px;
     }
 }
 
-@media only screen and (min-width: 805px){
-    header{
-        max-height:150px;
+@media only screen and (min-width: 805px) {
+    header {
+        max-height: 150px;
     }
-    
-    h1{
+    h1 {
         margin-top: 30px;
-        font-size:5rem;
+        font-size: 5rem;
+    }
+    .main-gallery div img {
+        width: 150px;
+        height: 150px;
     }
 }
