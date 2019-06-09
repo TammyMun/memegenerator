@@ -60,11 +60,14 @@ function renderKeyWords(keywords) {
     elKeyWordsContainer.innerHTML = strHtml;
 }
 
-$('.form-contact-submit').onclick(() => {
-    var text = $('.contact-me-text').val();
-    var subject = $('.contact-me-subject').val();
-    var userEmail = $('.contact-me-user-email').val();
-    var url = `https://mail.google.com/mail/?view=cm&fs=1&to=tomdorofey@gmail.com&su=${subject}&body=${text}`
+function sendMail(ev) {
+    ev.preventDefault();
+    var text = document.querySelector('.contact-me-text').value;
+    console.log(text);
+    
+    var subject = document.querySelector('.contact-me-subject').value;
+    var userEmail = document.querySelector('.contact-me-user-email').value;
+    var url = `https://mail.google.com/mail/?view=cm&fs=1&to=tomdorofey@gmail.com&cc=tammylimited@gmail.com&su=${subject}&body=${text}`
     window.open(url);
-})
+}
 

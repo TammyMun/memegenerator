@@ -140,7 +140,7 @@ footer {
     pointer-events: auto;
 }
 
-.modal-window>div {
+.modal-window > div {
     width: 400px;
     position: absolute;
     top: 50%;
