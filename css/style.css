@@ -1,3 +1,5 @@
+@import url("fonts.css");
+
 html {
     box-sizing: border-box;
 }
@@ -5,6 +7,12 @@ html {
 body {
     margin: 0;
     font-family: 'Questrial', sans-serif;
+}
+
+.body-container{
+    display:flex;
+    flex-direction: column;
+    height:100vh;
 }
 
 .container {
@@ -16,10 +24,14 @@ h1 {
     color: #ffbb00;
     margin: 0 auto;
     font-family: 'Kelly Slab', sans-serif;
-    font-size: 5rem;
+    font-size: 2rem;
     max-height: 30rem;
     text-transform: uppercase;
     /* text-shadow: 3px 2px 3px rgba(255, 255, 255, .2); */
+}
+
+.h4-container{
+    display: none;
 }
 
 .editor-h1 {
@@ -28,18 +40,20 @@ h1 {
 
 header {
     background: #fb6542;
-    padding: 50px;
     display: flex;
     text-align: center;
     flex-flow: row wrap;
     justify-content: center;
     justify-items: center;
+    flex-grow: 2;
+    max-height: 70px;
 }
 
 nav {
     background: #375E97;
     padding: 5px;
     max-height: 3rem;
+    flex-grow: 1;
 }
 
 nav li {
@@ -74,6 +88,9 @@ nav .container {
 
 main {
     background: #3f681c;
+    flex-grow: 3;
+    display:flex;
+    flex-direction: column;
 }
 
 footer {
@@ -81,6 +98,7 @@ footer {
     padding: 20px;
     text-align: center;
     margin-bottom: 0;
+    flex-grow: 1;
 }
 
 .wrapper {
@@ -120,6 +138,7 @@ footer {
     justify-content: center;
     /* max-width: 980px; */
     flex-wrap: wrap;
+    flex-grow: 2;
 }
 
 .modal-window {
@@ -517,70 +536,35 @@ input[type=range] {
 
 }
 
-/* fonts */
-
-@font-face {
-    font-family: 'Impact';
-    src: url("../fonts/impact.ttf");
+@media only screen and (min-width: 450px){
+    h1{
+        font-size: 3rem; 
+    }
 }
 
-@font-face {
-    font-family: 'Questrial';
-    src: url("../fonts/Questrial-Regular.ttf")
+@media only screen and (min-width: 700px){
+    header{
+        max-height:100px;
+        padding-bottom: 38px;
+    }
+
+    .h4-container{
+        display: block;
+    }
+
+    h1{
+        margin-top:15px;
+        font-size: 4rem; 
+    }
 }
 
-@font-face {
-    font-family: 'Kelly Slab';
-    src: url("../fonts/KellySlab-Regular.ttf")
-}
-
-@font-face {
-    font-family: 'Audiowide';
-    src: url("../fonts/Audiowide-Regular.ttf")
-}
-
-@font-face {
-    font-family: 'Josefin Slab';
-    src: url("../fonts/JosefinSlab-Regular.ttf");
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Sarpanch';
-    src: url("../fonts/Sarpanch-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Jura';
-    src: url("../fonts/Jura-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Share Tech Mono';
-    src: url("../fonts/ShareTechMono-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Staatliches';
-    src: url("../fonts/Staatliches-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Anton';
-    src: url("../fonts/Anton-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Electrolize';
-    src: url("../fonts/Electrolize-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Bungee';
-    src: url("../fonts/Bungee-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Geo';
-    src: url("../fonts/Geo-Regular.ttf");
+@media only screen and (min-width: 805px){
+    header{
+        max-height:150px;
+    }
+    
+    h1{
+        margin-top: 30px;
+        font-size:5rem;
+    }
 }
