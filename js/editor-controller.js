@@ -7,6 +7,8 @@ let imgEl;
 
 function onInit() {
     gCanvas = document.getElementById('canvas');
+    canvas.style.width = '100vw';
+    canvas.style.height = 'auto';
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
     gCurrentImage = getObjectFromLocal('selectedImage');
@@ -39,7 +41,15 @@ function onStopDraw() {
 
 function draw(ev) {
     if (gIsMouseClicked) {
-        const { offsetX, offsetY } = ev
+        
+        if(ev.touches){
+            ev.offsetX = ev.touches[0].pageX - ev.touches[0].target.offsetLeft;
+            ev.offsetY = ev.touches[0].pageY - ev.touches[0].target.offsetTop;
+        }
+        
+        let offsetX = ev.offsetX
+        let offsetY = ev.offsetY
+
         gCurrentText.x = offsetX;
         gCurrentText.y = offsetY;
         renderText(imgEl, textEditor, offsetX, offsetY, gCurrentText.index);
@@ -86,7 +96,7 @@ function addInput(elementId) {
     controlsContainer.innerHTML = strHtml;
 }
 
-function changeListener(elementId){
+function changeListener(elementId) {
     let id = getNumOutOfString(elementId);
     textEditor = document.querySelector('#text-editor-' + id);
     gCurrentText.index = --id;
@@ -99,7 +109,7 @@ function changeListener(elementId){
 function onChangeColor(color, className) {
     let indexToChange = getNumOutOfString(className) - 1;
     updateColor(color, indexToChange);
-    renderText(imgEl, textEditor, gCurrentText.x,gCurrentText.y, indexToChange);
+    renderText(imgEl, textEditor, gCurrentText.x, gCurrentText.y, indexToChange);
 }
 
 function onDeleteline() {
@@ -110,7 +120,7 @@ function onDeleteline() {
 function onResize(value, id) {
     let index = getNumOutOfString(id) - 1;
     updateFontSize(value, index);
-    renderText(imgEl, textEditor, gCurrentText.x,gCurrentText.y,index);
+    renderText(imgEl, textEditor, gCurrentText.x, gCurrentText.y, index);
 }
 
 function onChangeFont() {
