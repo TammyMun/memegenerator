@@ -72,7 +72,8 @@ window.onunload = function() {
 
 }
 
-function openModal() {
-    // document.querySelector('.modal-window').style.opacity = 1;
-    // document.querySelector('.modal-window').style.pointer-events = auto;
-}
+// function openModal() {
+//     document.querySelector('.modal-window').style.opacity = 1;
+//     document.querySelector('.modal-window').style.pointerEvents = auto;
+// }
+
