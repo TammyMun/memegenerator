@@ -72,8 +72,12 @@ window.onunload = function() {
 
 }
 
-// function openModal() {
-//     document.querySelector('.modal-window').style.opacity = 1;
-//     document.querySelector('.modal-window').style.pointerEvents = auto;
-// }
+function openModal() {
+    document.querySelector('.modal-window').style.opacity = 1;
+    document.querySelector('.modal-window').style.pointerEvents = "auto";
+}
 
+function closeModal() {
+    document.querySelector('.modal-window').style.opacity = 0;
+    document.querySelector('.modal-window').style.pointerEvents = "none";
+}

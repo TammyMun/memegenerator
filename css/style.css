@@ -153,10 +153,10 @@ footer {
     transition: all 0.3s;
 }
 
-.modal-window:target {
+/* .modal-window:target {
     opacity: 1;
     pointer-events: auto;
-}
+} */
 
 .modal-window>div {
     width: 400px;
@@ -189,6 +189,7 @@ footer {
     top: 0;
     width: 70px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .modal-close:hover {

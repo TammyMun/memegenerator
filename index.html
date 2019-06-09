@@ -27,7 +27,8 @@
                 <ul class="fade-in-bck">
                     <li><a>Upload image</a></li>
                     <li><a>About</a></li>
-                    <li><a href="#open-modal">Contact</a></li>
+                    <li><a onclick="openModal()">Contact</a></li>
+                    <!-- href="#open-modal" -->
                     <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
                 </ul>
             </div>
@@ -45,7 +46,7 @@
 
     <div id="open-modal" class="modal-window">
         <div>
-            <a href="#" title="Close" class="modal-close">Close</a>
+            <a onclick="closeModal()" title="Close" class="modal-close">Close</a>
             <h1>email us</h1>
             <div>We would love to hear your thoughts. This form opens a new message in Gmail with your provided details.</div>
             <form>
