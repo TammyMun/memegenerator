@@ -72,16 +72,14 @@ function sendMail(ev) {
     window.open(url);
 }
 
-window.onunload = function() {
-
-}
-
-function openModal() {
-    document.querySelector('.modal-window').style.opacity = 1;
-    document.querySelector('.modal-window').style.pointerEvents = "auto";
-}
-
-function closeModal() {
-    document.querySelector('.modal-window').style.opacity = 0;
-    document.querySelector('.modal-window').style.pointerEvents = "none";
+function openNavbar(element){
+    let elNavbar = document.querySelector('.nav-items');
+    if(element.innerText === '✕'){
+        element.innerHTML = '☰'
+    } else{
+        console.log(element.innerText);
+        element.innerHTML = '✕'
+    }
+    elNavbar.classList.toggle('hidden');
+    elNavbar.classList.toggle('flex');
 }

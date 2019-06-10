@@ -11,20 +11,11 @@
 
 <body onload="onInit()">
     <div class="body-container">
-        <!-- hidden^ -->
-        <nav id="togglemenu">
-            <ul class="menu-items" id="menuitems">
-                <li class="show-all"><a>Show All</a></li>
-                <li><a>Upload image</a></li>
-                <li><a>About</a></li>
-                <li><a onclick="openModal()">Contact</a></li>
-            </ul>
-        </nav>
         <header class="header slide-in-top">
             <div class="container">
                 <div class="h1-container">
-                    <a class="hamburger" id="hamburger" onclick="togglemenu.classList.toggle('open');">&#9776;</a>
                     <h1 class="fade-in-top-shadow-drop">meme generator</h1>
+                    <a class="hamburger" id="hamburger" onclick="openNavbar(this)">&#9776;</a>
                 </div>
                 <div class="h4-container">
                     <h4 class="fade-in-top-shadow-drop-delay">By Tammy & Tom</h4>
@@ -33,24 +24,26 @@
         </header>
 
         <nav class="large-nav scale-in-ver-top">
-            <div class="container">
+            <div class="container nav-bar-container">
                 <ul class="fade-in-bck">
-                    <div class="nav-items" id="nav-items" hidden>
+                    <div class="nav-items hidden" id="nav-items">
                         <li class="show-all"><a>Show All</a></li>
                         <li><a>Upload image</a></li>
                         <li><a>About</a></li>
                         <li><a onclick="openModal()">Contact</a></li>
+                        <li class="search">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)">
+                        </li>
                     </div>
-                    <!-- href="#open-modal" -->
-                    <li class="search">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)">
-                    </li>
                 </ul>
+                <div class="search-mobile">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)">
+                </div>
             </div>
         </nav>
 
         <main class="main fade-in-bottom">
             <div class="main-gallery container fade-in-bck-delay"></div>
-            
+
+
             <div class="wrapper scale-in-ver-bottom">
                 <datalist class="images-search-list" id="images"></datalist>
                 <div class="key-words-container slide-in-fwd-center"></div>

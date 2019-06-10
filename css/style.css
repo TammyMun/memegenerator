@@ -4,9 +4,34 @@ html {
     box-sizing: border-box;
 }
 
+.hidden{
+    display:none;
+}
+
 body {
     margin: 0;
     font-family: 'Questrial', sans-serif;
+}
+
+@media only screen and (max-width: 700px){
+    .nav-items{
+        position: fixed;
+        right: -6px;
+        background-color: #375E97;
+        top: -46px;
+        height: 50vh;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .search{
+        display:none;
+    }
+
+    .search-mobile{
+        position: absolute;
+        top: 9px;
+        left: 4vw;
+    }
 }
 
 .body-container{
@@ -63,10 +88,12 @@ header {
 }
 
 nav {
-    background: #375E97;
+    background-color: #375E97;
     padding: 5px;
     max-height: 10rem;
     flex-grow: 1;
+    height: 25px;
+    z-index: 10;
 }
 
 nav li {
@@ -86,8 +113,8 @@ nav ul a, nav ul a:visited {
     text-align: center;
     border: none;
     position: relative;
-    bottom: 3px;
-    margin-top: 8px;
+    bottom: 17px;
+    margin:0;
 }
 
 .search-box {
@@ -119,14 +146,16 @@ nav .container {
 }
 
 .hamburger {
-    height: 100%;
-    max-width: fit-content;
-    background: #375E97;
-    text-decoration: none;
-    color: #ffbb00;
+    border-radius: 6px;
+    margin: 3px;
+    padding: 0px 7px;
     cursor: pointer;
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 23px;
+    background-color: #375E97;
+    color: #ffbb00;
+    line-height: 34px;
+    position: absolute;
+    right: 0;
 }
 
 main {
@@ -172,6 +201,7 @@ footer {
     cursor: pointer;
     object-fit: cover;
     border: 1px black solid;
+    object-fit: cover;
 }
 
 .main-gallery {
@@ -189,16 +219,11 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 999;
+    z-index: 40;
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s;
 }
-
-/* .modal-window:target {
-    opacity: 1;
-    pointer-events: auto;
-} */
 
 .modal-window>div {
     width: 80vw;
@@ -218,7 +243,7 @@ footer {
     width: 170px;
     transform: translate(3000px, 0);
     transition: transform 0.6s ease;
-    z-index: 10000;
+    z-index: 50;
 }
 
 #togglemenu li {
@@ -708,6 +733,17 @@ input[type=range] {
     .hamburger {
         display: none;
     }
+    .search{
+        bottom:0;
+        margin-left:25px;
+    }
+
+    nav{
+        height: 43px;
+    }
+    .search-mobile{
+        display:none;
+    }
 }
 
 @media only screen and (min-width: 805px) {
@@ -727,3 +763,6 @@ input[type=range] {
     }
 }
 
+.flex{
+    display: flex;
+}
