@@ -9,6 +9,15 @@ body {
     font-family: 'Questrial', sans-serif;
 }
 
+.body-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-container{
+    align-self: center;
+}
+
 .body-container {
     display: flex;
     flex-direction: column;

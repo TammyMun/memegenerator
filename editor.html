@@ -10,56 +10,62 @@
 </head>
 
 <body onload="onInit()">
-    <header class="header">
-        <div class="container">
-            <div class="h1-container">
-                <h1 class="fade-in-top-shadow-drop">meme generator</h1>
-            </div>
-            <div class="h4-container">
+    <div class="body-container">
+
+        <header class="header">
+            <div class="container">
+                <div class="h1-container">
+                    <h1 class="fade-in-top-shadow-drop">meme generator</h1>
+                </div>
+                <div class="h4-container">
                     <h4 class="fade-in-top-shadow-drop-delay">By Tammy & Tom</h4>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="index.html">Gallery</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Contact</a></li>
+                    <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="canvas-container">
+            <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()"
+                ontouchstart="onStartDraw()" ontouchmove="draw(event)" ontouchend="onStopDraw()"
+                onmousemove="draw(event)" id="canvas">
+            </canvas>
+        </div>
+
+        <div class="download-image">
+            <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
+        </div>
+
+        <br>
+
+        <div class="lines-container">
+            <div class="controls" id="1">
+                <div class="text-input-container">
+                    <label class="label">Edit your text here</label>
+                    <input class="editor" id="text-editor-1" type="text" value="" onfocus="changeListener(this.id)" />
+                </div>
+                <input onchange="onChangeColor(this.value, this.className)" class="color-picker-1" type="color"
+                    id="color-picked" value="#ffffff">
+                <label for="font-size">Font size</label>
+                <input onchange="onResize(this.value, this.id)" type="range" id="font-size-1" name="size" min="20"
+                    max="100" value="40" step="2">
+                <button class="btn add-line-btn" id="line-1" onclick="addInput(this.id)">Add line</button>
+                <!-- <button class="btn"></button> -->
+                <!-- <button onclick="onDeleteText()" class="btn">Delete</button> -->
             </div>
         </div>
-    </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="index.html">Gallery</a></li>
-                <li><a>About</a></li>
-                <li><a>Contact</a></li>
-                <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
-            </ul>
-        </div>
-    </nav>
-
-    <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()" ontouchstart="onStartDraw()"
-        ontouchmove="draw(event)" ontouchend="onStopDraw()" onmousemove="draw(event)" id="canvas">
-    </canvas>
-    
-    <div class="download-image">
-        <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
+        <footer>&#169; 2019 Tom Dorofeyev & Tammy Mundel</footer>
     </div>
-
-    <br>
-
-    <div class="lines-container">
-        <div class="controls" id="1">
-            <div class="text-input-container">
-                <label class="label">Edit your text here</label>
-                <input class="editor" id="text-editor-1" type="text" value="" onfocus="changeListener(this.id)" />
-            </div>
-            <input onchange="onChangeColor(this.value, this.className)" class="color-picker-1" type="color"
-                id="color-picked" value="#ffffff">
-            <label for="font-size">Font size</label>
-            <input onchange="onResize(this.value, this.id)" type="range" id="font-size-1" name="size" min="20" max="100"
-                value="40" step="2">
-            <button class="btn add-line-btn" id="line-1" onclick="addInput(this.id)">Add line</button>
-            <!-- <button class="btn"></button> -->
-            <!-- <button onclick="onDeleteText()" class="btn">Delete</button> -->
-        </div>
-    </div>
-
-    <footer>&#169; 2019 Tom Dorofeyev & Tammy Mundel</footer>
     <script src="js/service-util.js"></script>
     <script src="js/main-service.js"></script>
     <script src="js/editor-controller.js"></script>
