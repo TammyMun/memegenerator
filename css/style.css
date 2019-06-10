@@ -29,7 +29,7 @@ body {
 
     .search-mobile {
         position: absolute;
-        top: 7px;
+        top: 4px;
         left: 4vw;
         text-transform: uppercase;
         color: #ffbb00;
@@ -116,8 +116,13 @@ nav ul a, nav ul a:visited {
     text-align: center;
     border: none;
     position: relative;
-    bottom: 1px;
+    bottom: 6px;
     /* margin:0; */
+}
+
+.editor-nav li {
+    position: relative;
+    bottom: 4px;
 }
 
 .search-box {
@@ -701,9 +706,12 @@ input[type=range] {
     nav li {
         margin-left: 20px;
     }
-    .search-box {
-        max-width: 10rem;
-        margin-top: 0; 
+    .search-mobile {
+        position: absolute;
+        top: 4px;
+        left: 4vw;
+        text-transform: uppercase;
+        color: #ffbb00;
     }
 }
 
