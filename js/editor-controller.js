@@ -7,8 +7,6 @@ let imgEl;
 
 function onInit() {
     gCanvas = document.getElementById('canvas');
-    canvas.width = '980px';
-    canvas.height = '50vh';
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
     gCurrentImage = getObjectFromLocal('selectedImage');
@@ -18,17 +16,25 @@ function onInit() {
     updateColor('#ffffff', 0);
 }
 
-function renderText(img, element, x = 50, y = 50, textIndex) {
-    // gCtx.clearRect(0, 0, canvas.width, canvas.height);
+function renderText(img, element, textIndex) {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    gCtx.fillStyle = gTextLines[textIndex].color;
-    gCtx.textBaseline = 'middle';
-    gCtx.font = `${gTextLines[textIndex].fontSize} 'Impact'`;
     gTextLines[textIndex].text = element.value;
-    gCtx.fillText(gTextLines[textIndex].text, x, y);
     gCtx.strokeStyle = 'black';
     gCtx.lineWidth = 2;
-    gCtx.strokeText(gTextLines[textIndex].text, x, y);
+
+    gTextLines.forEach((text) => {
+        if (text.text) {
+            //CHECK IF TEXT HAS POSITION IF NOT SET DEFAULT
+            if (!text.x && !text.y) {
+                text.x = 50
+                text.y = 50
+            }
+            gCtx.font = `${text.fontSize} 'impact'`;
+            gCtx.fillStyle = text.color;
+            gCtx.fillText(text.text, text.x, text.y);
+            gCtx.strokeText(text.text, text.x, text.y);
+        }
+    })
 }
 
 function onStartDraw() {
@@ -40,19 +46,22 @@ function onStopDraw() {
 }
 
 function draw(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
     if (gIsMouseClicked) {
-        
-        if(ev.touches){
+
+        if (ev.touches) {
             ev.offsetX = ev.touches[0].pageX - ev.touches[0].target.offsetLeft;
             ev.offsetY = ev.touches[0].pageY - ev.touches[0].target.offsetTop;
         }
-        
+
         let offsetX = ev.offsetX
         let offsetY = ev.offsetY
 
-        gCurrentText.x = offsetX;
-        gCurrentText.y = offsetY;
-        renderText(imgEl, textEditor, offsetX, offsetY, gCurrentText.index);
+        gTextLines[gCurrentText.index].x = offsetX
+        gTextLines[gCurrentText.index].y = offsetY
+        renderText(imgEl, textEditor, gCurrentText.index);
     }
     else return
 }
@@ -66,14 +75,14 @@ function renderCanvas(imgSrc) {
     img = new Image();
     img.src = imgSrc;
 
-    if(window.innerWidth > 980){
+    if (window.innerWidth > 980) {
         gCanvas.width = 980;
         gCanvas.height = 600;
-    } else{
+    } else {
         gCanvas.width = window.innerWidth - 10;
-        gCanvas.height = window.innerHeight/2;
+        gCanvas.height = window.innerHeight / 2;
     }
-    
+
     img.onload = function () {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     }
@@ -107,16 +116,16 @@ function changeListener(elementId) {
     let id = getNumOutOfString(elementId);
     textEditor = document.querySelector('#text-editor-' + id);
     gCurrentText.index = --id;
-    renderText(imgEl, textEditor, x = 50, y = 50, gCurrentText.index);
+    renderText(imgEl, textEditor, gCurrentText.index);
     textEditor.addEventListener('keyup', () => {
-        renderText(imgEl, textEditor, x = 50, y = 50, gCurrentText.index);
+        renderText(imgEl, textEditor, gCurrentText.index);
     })
 }
 
 function onChangeColor(color, className) {
     let indexToChange = getNumOutOfString(className) - 1;
     updateColor(color, indexToChange);
-    renderText(imgEl, textEditor, gCurrentText.x, gCurrentText.y, indexToChange);
+    renderText(imgEl, textEditor, indexToChange);
 }
 
 function onDeleteline() {
@@ -127,7 +136,7 @@ function onDeleteline() {
 function onResize(value, id) {
     let index = getNumOutOfString(id) - 1;
     updateFontSize(value, index);
-    renderText(imgEl, textEditor, gCurrentText.x, gCurrentText.y, index);
+    renderText(imgEl, textEditor, index);
 }
 
 function onChangeFont() {
