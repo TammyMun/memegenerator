@@ -49,7 +49,7 @@ header {
     justify-content: center;
     justify-items: center;
     flex-grow: 2;
-    max-height: 45px;
+    max-height: 75px;
 }
 
 nav {
@@ -94,7 +94,7 @@ nav ul {
 }
 
 nav .container {
-    max-width: 40rem;
+    max-width: 50rem;
 }
 
 main {
