@@ -11,10 +11,17 @@
 
 <body onload="onInit()">
     <div class="body-container">
-
+        <nav id="togglemenu">
+            <ul class="menu-items" id="menuitems">
+                <li><a href="index.html">Gallery</a></li>
+                <li><a>About</a></li>
+                <li><a onclick="openModal()">Contact</a></li>
+            </ul>
+        </nav>
         <header class="header">
             <div class="container">
                 <div class="h1-container">
+                    <a class="hamburger" id="hamburger" onclick="togglemenu.classList.toggle('open');">&#9776;</a>
                     <h1 class="editor-h1">meme generator</h1>
                 </div>
                 <div class="h4-container">
@@ -26,41 +33,64 @@
         <nav>
             <div class="container">
                 <ul>
-                    <li><a href="index.html">Gallery</a></li>
-                    <li><a>About</a></li>
-                    <li><a>Contact</a></li>
-                    <li class="search">Search <input list="images" onkeyup="onFilter(this.value)"></li>
+                    <div class="nav-items" id="nav-items" hidden>
+                        <li><a href="index.html">Gallery</a></li>
+                        <li><a>About</a></li>
+                        <li><a onclick="openModal()">Contact</a></li>
+                    </div>
+                    <li class="search">Search <input class="search-box" list="images" onkeyup="onFilter(this.value)">
+                    </li>
                 </ul>
             </div>
         </nav>
 
-        <div class="canvas-container">
-            <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()"
-                ontouchstart="onStartDraw()" ontouchmove="draw(event)" ontouchend="onStopDraw()"
-                onmousemove="draw(event)" id="canvas">
-            </canvas>
-        </div>
-
-        <div class="download-image">
-            <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
-        </div>
-
-        <br>
-
-        <div class="lines-container">
-            <div class="controls" id="1">
-                <div class="text-input-container">
-                    <label class="label">Edit your text here</label>
-                    <input class="editor" id="text-editor-1" type="text" value="" onfocus="changeListener(this.id)" />
+        <main class="editor-main">
+            <div class="canvas-container">
+                <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()"
+                    ontouchstart="onStartDraw()" ontouchmove="draw(event)" ontouchend="onStopDraw()"
+                    onmousemove="draw(event)" id="canvas">
+                </canvas>
+            </div>
+    
+            <div class="download-image">
+                <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
+            </div>
+    
+    
+            <div class="lines-container">
+                <div class="controls" id="1">
+                    <div class="text-input-container">
+                        <label class="label">Edit your text here</label>
+                        <input class="text-editor" id="text-editor-1" type="text" value="" onfocus="changeListener(this.id)" />
+                    </div>
+                    <input onchange="onChangeColor(this.value, this.className)" class="color-picker-1" type="color"
+                        id="color-picked" value="#ffffff">
+                    <label for="font-size">Font size</label>
+                    <input onchange="onResize(this.value, this.id)" type="range" id="font-size-1" name="size" min="20"
+                        max="100" value="40" step="2">
+                    <button class="btn add-line-btn" id="line-1" onclick="addInput(this.id)">Add line</button>
                 </div>
-                <input onchange="onChangeColor(this.value, this.className)" class="color-picker-1" type="color"
-                    id="color-picked" value="#ffffff">
-                <label for="font-size">Font size</label>
-                <input onchange="onResize(this.value, this.id)" type="range" id="font-size-1" name="size" min="20"
-                    max="100" value="40" step="2">
-                <button class="btn add-line-btn" id="line-1" onclick="addInput(this.id)">Add line</button>
-                <!-- <button class="btn"></button> -->
-                <!-- <button onclick="onDeleteText()" class="btn">Delete</button> -->
+            </div>
+        </main>
+
+
+
+
+        <div id="open-modal" class="modal-window">
+            <div>
+                <a onclick="closeModal()" title="Close" class="modal-close">Close</a>
+                <h1>email us</h1>
+                <div>We would love to hear your thoughts. This form opens a new message in Gmail with your provided
+                    details.</div>
+                <form>
+                    <label for="subject">Subject:</label><br>
+                    <input type="text" class="contact-me-subject" name="subject" value=""><br>
+                    <label for="mail-body">Write your message:</label><br>
+                    <input class="contact-me-text" type="textarea" name="mail-body" value=""><br>
+                    <input class="form-contact-submit" type="submit" name="submit" value="Send in Gmail"
+                        onclick="sendMail(event)">
+                </form>
+                <div><small></small></div>
             </div>
         </div>
 
