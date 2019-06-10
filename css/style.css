@@ -135,8 +135,6 @@ nav ul a, nav ul a:visited {
     margin-top: 5px;    
 }
 
-
-
 nav ul {
     display: flex;
     flex-flow: row wrap;
