@@ -40,3 +40,15 @@ function sendMail(ev) {
     let url = `https://mail.google.com/mail/?view=cm&fs=1&to=tomdorofey@gmail.com&cc=tammylimited@gmail.com&su=${subject}&body=${text}`
     window.open(url);
 }
+
+function openNavbar(element){
+    let elNavbar = document.querySelector('.nav-items');
+    if(element.innerText === '✕'){
+        element.innerHTML = '☰'
+    } else{
+        console.log(element.innerText);
+        element.innerHTML = '✕'
+    }
+    elNavbar.classList.toggle('hidden');
+    elNavbar.classList.toggle('flex');
+}

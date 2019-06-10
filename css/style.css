@@ -23,14 +23,16 @@ body {
         flex-direction: column;
         justify-content: space-between;
     }
-    .search{
-        display:none;
+    .search {
+        display: none;
     }
 
-    .search-mobile{
+    .search-mobile {
         position: absolute;
-        top: 9px;
+        top: 7px;
         left: 4vw;
+        text-transform: uppercase;
+        color: #ffbb00;
     }
 }
 
@@ -109,12 +111,13 @@ nav ul a, nav ul a:visited {
 }
 
 .search {
+    color: #1c203b;
     color: #ffbb00;
     text-align: center;
     border: none;
     position: relative;
-    bottom: 17px;
-    margin:0;
+    bottom: 1px;
+    /* margin:0; */
 }
 
 .search-box {
@@ -171,6 +174,7 @@ footer {
     text-align: center;
     margin-bottom: 0;
     flex-grow: 0;
+    color: #1c203b;
 }
 
 .wrapper {
@@ -292,19 +296,25 @@ small {
 .btn {
     background-color: #fff;
     padding: 0.5em 1em;
-    border-radius: 3px;
+    border-radius: 4px;
     text-decoration: none;
     margin: 5px;
+    outline: none;
+    background: #ffbb00;
+    color: #1c203b;
+    border: none;
 }
 
 .lines-container {
+    color: #ffbb00;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
     background: #375E97;
-    width: 450px;
+    max-width: 450px;
     align-self: center;
     padding: 15px;
 }
@@ -733,16 +743,12 @@ input[type=range] {
     .hamburger {
         display: none;
     }
-    .search{
-        bottom:0;
-        margin-left:25px;
-    }
 
     nav{
         height: 43px;
     }
     .search-mobile{
-        display:none;
+        display: none;
     }
 }
 
