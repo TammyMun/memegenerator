@@ -77,7 +77,6 @@ function openNavbar(element){
     if(element.innerText === '✕'){
         element.innerHTML = '☰'
     } else{
-        console.log(element.innerText);
         element.innerHTML = '✕'
     }
     elNavbar.classList.toggle('hidden');
