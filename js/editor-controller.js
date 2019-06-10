@@ -102,11 +102,12 @@ function addInput(elementId) {
             <label class="label">Edit your text here</label>
             <input class="text-editor" id="text-editor-${id}" type="text" value="" onfocus="changeListener(this.id)"/>
         </div>
+        <label class="color-picker">Color</label>
         <input onchange="onChangeColor(this.value, this.className)" class="color-picker-${id}" type="color" id="color-picked-${id}" value="#ffffff">
         <label for="font-size">Font size</label>
         <input onchange="onResize(this.value, this.id)" type="range" id="font-size-${id}" name="size" min="20" max="100" value="40"step="2">
         <button class="btn add-line-btn" id="line-${id}" onclick="addInput(this.id)">+</button>
-        <button onclick="onDeleteLine(this.id)" class="btn" id="controls-${id}">🗑️</button>
+        <button onclick="onDeleteLine(this.id)" class="btn" id="controls-${id}">🗑</button>
     </div>`
     controlsContainer.innerHTML = strHtml;
 }
