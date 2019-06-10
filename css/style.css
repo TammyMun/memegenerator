@@ -120,6 +120,11 @@ nav ul a, nav ul a:visited {
     /* margin:0; */
 }
 
+.editor-nav li {
+    position: relative;
+    bottom: 4px;
+}
+
 .search-box {
     outline: none;
     border: 1px solid #ccc;
