@@ -236,7 +236,7 @@ footer {
 
 #togglemenu.open {
     display: block;
-    transform: translate(28px, 0);
+    transform: translate(75px, 0);
 }
 
 .modal-window header {
