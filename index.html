@@ -11,6 +11,16 @@
 
 <body onload="onInit()">
     <div class="body-container">
+        <a class="menu-icon" id="toggle-menu" onclick="menuitems.classList.add('open');" href="#">&#9776;</a>
+        <!-- hidden^ -->
+        <nav class="toggle-menu">
+            <ul class="fade-in-bck menu-items" id="menuitems">
+                <li class="show-all"><a>Show All</a></li>
+                <li><a>Upload image</a></li>
+                <li><a>About</a></li>
+                <li><a onclick="openModal()">Contact</a></li>
+            </ul>
+        </nav>
         <header class="header slide-in-top">
             <div class="container">
                 <div class="h1-container">
@@ -20,20 +30,21 @@
                     <h4 class="fade-in-top-shadow-drop-delay">By Tammy & Tom</h4>
                 </div>
             </div>
+
         </header>
 
-        <nav class="scale-in-ver-top">
+        <nav class="large-nav scale-in-ver-top">
             <div class="container">
                 <ul class="fade-in-bck">
-                    <li><a class="menu" id="toggle-menu" onclick="menu-items.classList.add('open');" href="#" hidden>&#9776;</a></li>
-                    <div class="menu-items" id="menu-items">
+                    <div class="nav-items" id="nav-items" hidden>
                         <li class="show-all"><a>Show All</a></li>
                         <li><a>Upload image</a></li>
                         <li><a>About</a></li>
                         <li><a onclick="openModal()">Contact</a></li>
                     </div>
                     <!-- href="#open-modal" -->
-                    <li class="search">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)"></li>
+                    <li class="search">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)">
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -48,27 +59,29 @@
             </div>
         </main>
 
-    <div id="open-modal" class="modal-window">
-        <div>
-            <a onclick="closeModal()" title="Close" class="modal-close">Close</a>
-            <h1>email us</h1>
-            <div>We would love to hear your thoughts. This form opens a new message in Gmail with your provided details.</div>
-            <form>
-                <label for="subject">Subject:</label><br>
-                <input type="text" class="contact-me-subject" name="subject" value=""><br>
-                <label for="mail-body">Write your message:</label><br>
-                <input class="contact-me-text" type="textarea" name="mail-body" value=""><br>
-                <input class="form-contact-submit" type="submit" name="submit" value="Send in Gmail" onclick="sendMail(event)">
-            </form>
-            <div><small></small></div>
+        <div id="open-modal" class="modal-window">
+            <div>
+                <a onclick="closeModal()" title="Close" class="modal-close">Close</a>
+                <h1>email us</h1>
+                <div>We would love to hear your thoughts. This form opens a new message in Gmail with your provided
+                    details.</div>
+                <form>
+                    <label for="subject">Subject:</label><br>
+                    <input type="text" class="contact-me-subject" name="subject" value=""><br>
+                    <label for="mail-body">Write your message:</label><br>
+                    <input class="contact-me-text" type="textarea" name="mail-body" value=""><br>
+                    <input class="form-contact-submit" type="submit" name="submit" value="Send in Gmail"
+                        onclick="sendMail(event)">
+                </form>
+                <div><small></small></div>
+            </div>
         </div>
-    </div>
 
-    <footer class="scale-in-ver-bottom-delay">
-        <div class="foot-text slide-in-fwd-center-delay">
-            &#169; 2019 Tom Dorofeyev & Tammy Mundel
-        </div>
-    </footer>
+        <footer class="scale-in-ver-bottom-delay">
+            <div class="foot-text slide-in-fwd-center-delay">
+                &#169; 2019 Tom Dorofeyev & Tammy Mundel
+            </div>
+        </footer>
     </div>
 
     <script src="js/service-util.js"></script>

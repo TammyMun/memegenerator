@@ -108,6 +108,18 @@ nav .container {
     max-width: 50rem;
 }
 
+.menu-items {
+    display: flex;
+    flex-direction: column;  
+}
+
+.menu-icon {
+    background: #375E97;
+    text-decoration: none;
+    color: #ffbb00;
+    cursor: pointer;
+}
+
 main {
     background: #3f681c;
     display: flex;
@@ -582,10 +594,6 @@ input[type=range] {
     nav li {
         margin-left: 20px;
     }
-    .menu-items {
-        display: flex;
-        flex-direction: row;
-    }
     .search-box {
         max-width: 10rem;
         margin-top: 0; 
@@ -620,6 +628,10 @@ input[type=range] {
     }
     input[type=text], select {
         width: 30em;
+    }
+    .nav-items {
+        display: flex;
+        flex-direction: row;
     }
 }
 
