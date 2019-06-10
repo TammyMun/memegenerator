@@ -7,8 +7,8 @@ let imgEl;
 
 function onInit() {
     gCanvas = document.getElementById('canvas');
-    canvas.style.width = '100%';
-    canvas.style.height = 'auto';
+    canvas.width = '980px';
+    canvas.height = '50vh';
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
     gCurrentImage = getObjectFromLocal('selectedImage');
@@ -20,7 +20,7 @@ function onInit() {
 
 function renderText(img, element, x = 50, y = 50, textIndex) {
     gCtx.clearRect(0, 0, canvas.width, canvas.height);
-    gCtx.drawImage(img, 0, 0);
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     gCtx.fillStyle = gTextLines[textIndex].color;
     gCtx.textBaseline = 'middle';
     gCtx.font = `${gTextLines[textIndex].fontSize} 'Impact'`;
@@ -65,10 +65,17 @@ function downloadImg(elLink) {
 function renderCanvas(imgSrc) {
     img = new Image();
     img.src = imgSrc;
-    gCanvas.width = img.width;
-    gCanvas.height = img.height;
+
+    if(window.innerWidth > 980){
+        gCanvas.width = 980;
+        gCanvas.height = 600;
+    } else{
+        gCanvas.width = window.innerWidth - 10;
+        gCanvas.height = window.innerHeight/2;
+    }
+    
     img.onload = function () {
-        gCtx.drawImage(img, 0, 0);
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     }
     return img;
 }

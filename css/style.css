@@ -1,4 +1,5 @@
 @import url("fonts.css");
+
 html {
     box-sizing: border-box;
 }
@@ -8,8 +9,13 @@ body {
     font-family: 'Questrial', sans-serif;
 }
 
-canvas{
-    margin:0 auto;
+.body-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-container{
+    align-self: center;
 }
 
 .body-container {
@@ -78,6 +84,7 @@ nav ul a, nav ul a:visited {
     position: relative;
     bottom: 1px;
 }
+
 .search-box {
     outline: none;
     /* padding: 8px; */
