@@ -21,7 +21,7 @@
         <header class="header">
             <div class="container">
                 <div class="h1-container">
-                    <a class="hamburger" id="hamburger" onclick="openNavbar(this)">&#9776;</a>
+                    <!-- <a class="hamburger" id="hamburger" onclick="openNavbar(this)">&#9776;</a> -->
                     <h1 class="editor-h1">meme generator</h1>
                 </div>
                 <div class="h4-container">
@@ -31,15 +31,13 @@
         </header>
 
         <nav class="large-nav">
-            <div class="container nav-bar-container">
+            <div class="container editor-nav-bar-container">
                 <ul>
-                    <div class="nav-items hidden editor-nav" id="nav-items">
+                    <div class="editor-nav-items editor-nav flex" id="nav-items">
                         <li><a href="index.html">Gallery</a></li>
                         <li><a>About</a></li>
                         <li><a onclick="openModal()">Contact</a></li>
                     </div>
-                    <li class="search">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)">
-                    </li>
                 </ul>
         </nav>
 

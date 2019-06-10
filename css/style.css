@@ -36,6 +36,15 @@ body {
     }
 }
 
+.editor-nav-items{
+    justify-content: space-between;
+    width: 100%;
+}
+
+.editor-nav-items li{
+    margin-right:10px;
+}
+
 .body-container{
     display: flex;
     flex-direction: column;
