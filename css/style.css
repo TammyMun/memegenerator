@@ -61,13 +61,13 @@ header {
 nav {
     background: #375E97;
     padding: 5px;
-    max-height: 3rem;
+    max-height: 10rem;
     flex-grow: 1;
 }
 
 nav li {
     list-style: none;
-    margin-left: 20px;
+    margin-bottom: 5px;
     text-transform: uppercase;
 }
 
@@ -82,7 +82,8 @@ nav ul a, nav ul a:visited {
     text-align: center;
     border: none;
     position: relative;
-    bottom: 2px;
+    bottom: 3px;
+    margin-top: 8px;
 }
 
 .search-box {
@@ -98,6 +99,7 @@ nav ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
 }
 
 nav .container {
@@ -187,6 +189,11 @@ footer {
     transform: translate(-50%, -50%);
     padding: 2em;
     background: #fb6542;
+}
+
+.container>.menu-items {
+    /* -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 .modal-window header {
@@ -569,6 +576,13 @@ input[type=range] {
     .modal-window {
         position: fixed;
         top: 0;
+    }
+    nav li {
+        margin-left: 20px;
+    }
+    .menu-items {
+        display: flex;
+        flex-direction: row;
     }
 }
 
