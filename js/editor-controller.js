@@ -7,8 +7,8 @@ let imgEl;
 
 function onInit() {
     gCanvas = document.getElementById('canvas');
-    canvas.style.width = '100%';
-    canvas.style.height = 'auto';
+    canvas.width = '100%';
+    canvas.height = 'auto';
     gCtx = canvas.getContext('2d');
     gImgs = getObjectFromLocal('images');
     gCurrentImage = getObjectFromLocal('selectedImage');
