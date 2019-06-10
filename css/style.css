@@ -303,10 +303,15 @@ small {
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    background: #375E97;
+    width: 450px;
+    align-self: center;
+    padding: 15px;
 }
 
 .download-image {
     align-self: center;
+    margin-bottom: 5px;
 }
 .download-image a {
     text-decoration: none;
@@ -330,6 +335,10 @@ small {
     margin-top: 6px;
     margin-bottom: 16px;
     outline: none;
+}
+
+.controls {
+    font-size: 1.2rem;
 }
 
 /* animations */

@@ -1,6 +1,7 @@
 'use-strict';
 
 let gId = 100;
+// let gTextId = 1;
 let gImgs;
 let gCurrentImage;
 let gCurrentText = {index:0, x:50, y:50};
@@ -86,6 +87,6 @@ function updateFontSize(value, index) {
     gTextLines[index].fontSize = currSize;
 }
 
-function deleteLine(elLine) {
-    elLine.innerHTML = '';
-}
+// function deleteLine(elLine) {
+//     elLine.innerHTML = '';
+// }
