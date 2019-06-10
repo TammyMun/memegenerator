@@ -2,10 +2,11 @@
 
 let gId = 100;
 let gImgs;
-let gFonts;
 let gCurrentImage;
 let gCurrentText = {index:0, x:50, y:50};
 let gTextLines = [{text:'Write your meme'}];
+//if not in use delete to avoid unnecessary variables
+let gFonts;
 
 function generateImages() {
     gImgs = [
@@ -28,7 +29,11 @@ function generateImages() {
         new image(gId++, 'opra', 'img/017.jpg', ['actor', 'television', 'opra']),
         new image(gId++, 'star-trek', 'img/018.jpg', ['actor', 'star trek', 'television', 'laugh']),
         new image(gId++, 'tell-me-more', 'img/019.jpg', ['tell me']),
-        new image(gId++, 'putin', 'img/020.jpg', ['putin', 'president'])
+        new image(gId++, 'putin', 'img/020.jpg', ['putin', 'president']),
+        new image(gId++, 'success kid', 'img/021.jpg', ['kids', 'cute', 'beach']),
+        new image(gId++, 'trump', 'img/022.jpg', ['trump', 'president']),
+        new image(gId++, 'two dogs', 'img/023.jpg', ['dogs', 'cute']),
+        new image(gId++, 'what would you do', 'img/024.jpg', ['old man', 'funny'])
     ]
     return gImgs;
 }
@@ -78,7 +83,6 @@ function changeFont() {
 
 function updateFontSize(value, index) {
     let currSize = value + 'px';
-    console.log(index);
     gTextLines[index].fontSize = currSize;
 }
 

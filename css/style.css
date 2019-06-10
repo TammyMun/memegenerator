@@ -8,6 +8,10 @@ body {
     font-family: 'Questrial', sans-serif;
 }
 
+canvas{
+    margin:0 auto;
+}
+
 .body-container {
     display: flex;
     flex-direction: column;
