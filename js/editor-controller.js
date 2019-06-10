@@ -105,7 +105,7 @@ function addInput(elementId) {
         <input onchange="onChangeColor(this.value, this.className)" class="color-picker-${id}" type="color" id="color-picked-${id}" value="#ffffff">
         <label for="font-size">Font size</label>
         <input onchange="onResize(this.value, this.id)" type="range" id="font-size-${id}" name="size" min="20" max="100" value="40"step="2">
-        <button class="btn add-line-btn" id="line-${id}" onclick="addInput(this.id)">Add line</button>
+        <button class="btn add-line-btn" id="line-${id}" onclick="addInput(this.id)">+</button>
         <button onclick="onDeleteLine(this.id)" class="btn" id="controls-${id}">🗑️</button>
     </div>`
     controlsContainer.innerHTML = strHtml;

@@ -130,7 +130,7 @@ nav .container {
 }
 
 main {
-    background: #3f681c;
+    background: #1c203b;
     display: flex;
     flex-direction: column;
     flex-grow: 3;
@@ -296,7 +296,7 @@ small {
 }
 
 .editor-main {
-    background: #3f681c;
+    background: #1c203b;
     padding-top: 20px;
     padding-bottom: 20px;
 }
