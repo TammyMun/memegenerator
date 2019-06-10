@@ -333,10 +333,10 @@ small {
     animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.7s both, text-shadow-drop-br 0.6s 1s both;
 }
 
-/* .fade-in-top-shadow-drop-delay {
-    -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.7s both, text-shadow-drop-br 0.6s 1s both;
-    animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.7s both, text-shadow-drop-br 0.6s 1s both;
-} */
+.fade-in-top-shadow-drop-delay {
+    -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.9s both, text-shadow-drop-br 1s 1.3s both;
+    animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.9s both, text-shadow-drop-br 1s 1.3s both;
+}
 
 @-webkit-keyframes fade-in-top {
     0% {
