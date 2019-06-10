@@ -40,6 +40,8 @@ function onStopDraw() {
 }
 
 function draw(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
     if (gIsMouseClicked) {
         
         if(ev.touches){
