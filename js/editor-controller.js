@@ -100,14 +100,13 @@ function addInput(elementId) {
     <div class="controls" id="${id}">
         <div class="text-input-container">
             <label class="label">Edit your text here</label>
-            <input class="editor" id="text-editor-${id}" type="text" value="" onfocus="changeListener(this.id)"/>
+            <input class="text-editor" id="text-editor-${id}" type="text" value="" onfocus="changeListener(this.id)"/>
         </div>
         <input onchange="onChangeColor(this.value, this.className)" class="color-picker-${id}" type="color" id="color-picked-${id}" value="#ffffff">
-        <button onclick="onDeleteText()" class="btn">Delete</button>
         <label for="font-size">Font size</label>
         <input onchange="onResize(this.value, this.id)" type="range" id="font-size-${id}" name="size" min="20" max="100" value="40"step="2">
-        <button class="btn"></button>
-        <button class="add-line-btn" id="line-${id}" onclick="addInput(this.id)">Add line</button>
+        <button class="btn add-line-btn" id="line-${id}" onclick="addInput(this.id)">Add line</button>
+        <button onclick="onDeleteLine(${id})" class="btn">Delete</button>
     </div>`
     controlsContainer.innerHTML = strHtml;
 }
@@ -128,9 +127,15 @@ function onChangeColor(color, className) {
     renderText(imgEl, textEditor, indexToChange);
 }
 
-function onDeleteline() {
-    deleteLine();
-    renderCanvas(gCurrentImage.src);
+function onDeleteLine(id) {
+    let currTextEditor = document.querySelector('#text-editor-' + id);
+    currTextEditor.value = '';
+    let currLine = document.getElementById(id);
+    currLine.innerHTML = '';
+    // let index = getNumOutOfString(id) - 1;
+    // renderText(gCurrentImage.src, currTextEditor, index);
+    // deleteLine(currLine);
+    // renderCanvas(gCurrentImage.src);
 }
 
 function onResize(value, id) {

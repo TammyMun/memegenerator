@@ -3,9 +3,8 @@
 let gId = 100;
 let gImgs;
 let gCurrentImage;
-let gCurrentText = { index: 0, x: 50, y: 50 };
-let gTextLines = [{ text: 'Write your meme' }];
-
+let gCurrentText = {index:0, x:50, y:50};
+let gTextLines = [{text:'Write your meme'}];
 //if not in use delete to avoid unnecessary variables
 let gFonts;
 
@@ -43,26 +42,24 @@ function clearSelectedImage() {
     localStorage.setItem('selectedImage', '');
 }
 
-function getRandomKeyWords(numberOfWords) {
+function getRandomKeyWords(numberOfWords){
     let randomKeywords = [];
-    for (var i = 0; i < numberOfWords; i++) {
+    for(var i = 0; i < numberOfWords ; i++){
         let imagesIndex = Math.floor(Math.random() * gImgs.length);
-        let keyword = {
-            word: gImgs[imagesIndex].keywords[Math.floor(Math.random() * gImgs[imagesIndex].keywords.length)],
-            popularity: getRandomInteger(1, 10)
-        };
-        let checkForWord = randomKeywords.find((word) => {
+        let keyword = {word: gImgs[imagesIndex].keywords[Math.floor(Math.random() * gImgs[imagesIndex].keywords.length)],
+        popularity: getRandomInteger(1, 10)};
+        let checkForWord = randomKeywords.find((word)=>{
             return word.word === keyword.word;
         })
         //making sure words dont repeat
-        if (checkForWord) i--;
+        if(checkForWord) i--;
         else randomKeywords.push(keyword);
     }
     return randomKeywords;
 }
 
-function filterImagesBy(filterWord) {
-    let filtered = gImgs.filter((image) => {
+function filterImagesBy(filterWord){
+    let filtered = gImgs.filter((image)=>{
         return image.keywords.indexOf(filterWord) > -1;
     })
     return filtered;
@@ -89,6 +86,6 @@ function updateFontSize(value, index) {
     gTextLines[index].fontSize = currSize;
 }
 
-function deleteLine() {
-    document.getElementById('text-editor-1').value = '';
+function deleteLine(elLine) {
+    elLine.innerHTML = '';
 }

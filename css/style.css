@@ -36,7 +36,6 @@ h1 {
     font-size: 2rem;
     max-height: 30rem;
     text-transform: uppercase;
-    /* text-shadow: 3px 2px 3px rgba(255, 255, 255, .2); */
 }
 
 .h1-container {
@@ -93,7 +92,6 @@ nav ul a, nav ul a:visited {
 
 .search-box {
     outline: none;
-    /* padding: 8px; */
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -155,7 +153,6 @@ footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    /* max-width: 980px; */
     font-family: 'Questrial', sans-serif;
 }
 
@@ -181,7 +178,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* max-width: 980px; */
     flex-wrap: wrap;
     flex-grow: 2;
 }
@@ -214,11 +210,6 @@ footer {
     transform: translate(-50%, -50%);
     padding: 2em;
     background: #fb6542;
-}
-
-.menu-items {
-    /* -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); */
 }
 
 #togglemenu {
@@ -279,6 +270,41 @@ small {
     border-radius: 3px;
     text-decoration: none;
     margin: 5px;
+}
+
+.lines-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.download-image {
+    align-self: center;
+}
+.download-image a {
+    text-decoration: none;
+    color: #ffbb00;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.editor-main {
+    background: #3f681c;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.text-editor {
+    width: 30vw;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    outline: none;
 }
 
 /* animations */
@@ -561,7 +587,7 @@ small {
 
 /* Inputs */
 
-input[type=text], select {
+input.contact-me-subject, select {
     width: 70vw;
     padding: 8px;
     border: 1px solid #ccc;
@@ -663,7 +689,7 @@ input[type=range] {
     input[type=textarea] {
         width: 30em;
     }
-    input[type=text], select {
+    input.contact-me-subject, select {
         width: 30em;
     }
     .nav-items {
