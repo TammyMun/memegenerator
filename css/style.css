@@ -93,6 +93,8 @@ nav ul a, nav ul a:visited {
     border-radius: 4px;
     box-sizing: border-box;
     margin-left: 8px;
+    max-width: 7rem;
+    margin-top: 5px;    
 }
 
 nav ul {
@@ -583,6 +585,10 @@ input[type=range] {
     .menu-items {
         display: flex;
         flex-direction: row;
+    }
+    .search-box {
+        max-width: 10rem;
+        margin-top: 0; 
     }
 }
 
