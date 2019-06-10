@@ -19,7 +19,7 @@ function onInit() {
 }
 
 function renderText(img, element, x = 50, y = 50, textIndex) {
-    gCtx.clearRect(0, 0, canvas.width, canvas.height);
+    // gCtx.clearRect(0, 0, canvas.width, canvas.height);
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     gCtx.fillStyle = gTextLines[textIndex].color;
     gCtx.textBaseline = 'middle';

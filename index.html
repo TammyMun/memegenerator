@@ -11,10 +11,9 @@
 
 <body onload="onInit()">
     <div class="body-container">
-        <a class="menu-icon" id="toggle-menu" onclick="menuitems.classList.add('open');" href="#">&#9776;</a>
         <!-- hidden^ -->
-        <nav class="toggle-menu">
-            <ul class="fade-in-bck menu-items" id="menuitems">
+        <nav id="togglemenu">
+            <ul class="menu-items" id="menuitems">
                 <li class="show-all"><a>Show All</a></li>
                 <li><a>Upload image</a></li>
                 <li><a>About</a></li>
@@ -24,13 +23,13 @@
         <header class="header slide-in-top">
             <div class="container">
                 <div class="h1-container">
+                    <a class="hamburger" id="hamburger" onclick="togglemenu.classList.toggle('open');">&#9776;</a>
                     <h1 class="fade-in-top-shadow-drop">meme generator</h1>
                 </div>
                 <div class="h4-container">
                     <h4 class="fade-in-top-shadow-drop-delay">By Tammy & Tom</h4>
                 </div>
             </div>
-
         </header>
 
         <nav class="large-nav scale-in-ver-top">

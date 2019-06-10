@@ -39,6 +39,11 @@ h1 {
     /* text-shadow: 3px 2px 3px rgba(255, 255, 255, .2); */
 }
 
+.h1-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .h4-container {
     display: none;
 }
@@ -97,6 +102,8 @@ nav ul a, nav ul a:visited {
     margin-top: 5px;    
 }
 
+
+
 nav ul {
     display: flex;
     flex-flow: row wrap;
@@ -113,11 +120,15 @@ nav .container {
     flex-direction: column;  
 }
 
-.menu-icon {
+.hamburger {
+    height: 100%;
+    max-width: fit-content;
     background: #375E97;
     text-decoration: none;
     color: #ffbb00;
     cursor: pointer;
+    font-size: 2rem;
+    line-height: 3rem;
 }
 
 main {
@@ -205,9 +216,27 @@ footer {
     background: #fb6542;
 }
 
-.container>.menu-items {
+.menu-items {
     /* -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); */
+}
+
+#togglemenu {
+    display: none;
+    position: absolute;
+    width: 170px;
+    transform: translate(3000px, 0);
+    transition: transform 0.6s ease;
+    z-index: 10000;
+}
+
+#togglemenu li {
+    margin-left: 0;
+}
+
+#togglemenu.open {
+    display: block;
+    transform: translate(28px, 0);
 }
 
 .modal-window header {
@@ -576,6 +605,14 @@ input[type=range] {
 
 }
 
+@media only screen and (min-width: 260px) {
+    .hamburger {
+        /* position: absolute;
+        top: 75px;
+        font-size: 3.50rem; */
+    }
+}
+
 @media only screen and (min-width: 450px) {
     h1 {
         font-size: 3rem;
@@ -632,6 +669,9 @@ input[type=range] {
     .nav-items {
         display: flex;
         flex-direction: row;
+    }
+    .hamburger {
+        display: none;
     }
 }
 
