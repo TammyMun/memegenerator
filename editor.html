@@ -12,11 +12,11 @@
 <body onload="onInit()">
     <header class="header">
         <div class="container">
-                <div class="h1-container">
-                        <h1 class="fade-in-top-shadow-drop">meme generator</h1>
-                </div>
+            <div class="h1-container">
+                <h1 class="fade-in-top-shadow-drop">meme generator</h1>
+            </div>
             <div class="h4-container">
-                    <h4 class="fade-in-top-shadow-drop">By Tammy & Tom</h4>
+                <h4 class="fade-in-top-shadow-drop">By Tammy & Tom</h4>
             </div>
         </div>
     </header>
@@ -32,10 +32,10 @@
         </div>
     </nav>
 
-    <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()"
-    ontouchstart="onStartDraw()" ontouchmove="draw(event)" ontouchend="onStopDraw()" onmousemove="draw(event)"
-        id="canvas" width="" height=""></canvas>
-
+    <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()" ontouchstart="onStartDraw()"
+        ontouchmove="draw(event)" ontouchend="onStopDraw()" onmousemove="draw(event)" id="canvas" width="100%" height="auto">
+    </canvas>
+    
     <div class="download-image">
         <a href="#" onclick="downloadImg(this)" download="my-image">Download Image</a>
     </div>

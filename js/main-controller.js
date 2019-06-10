@@ -1,6 +1,10 @@
 'use-strict';
 
 function onInit() {
+    let showAllButton = document.querySelector('.show-all');
+    showAllButton.addEventListener('click', ()=>{
+        renderGallery(gImgs);
+    })
     generateImages();
     clearSelectedImage();
     saveObjectToLocal('images', gImgs);
