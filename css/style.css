@@ -37,6 +37,10 @@ body {
     }
 }
 
+.nav-items{
+    top: -27px;
+}
+
 .editor-nav-items{
     justify-content: space-between;
     width: 100%;
@@ -730,6 +734,10 @@ input[type=range] {
         left: 4vw;
         text-transform: uppercase;
         color: #ffbb00;
+    }
+
+    .nav-items{
+        top: -46px;
     }
 }
 
