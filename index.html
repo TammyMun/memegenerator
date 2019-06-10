@@ -25,10 +25,13 @@
         <nav class="scale-in-ver-top">
             <div class="container">
                 <ul class="fade-in-bck">
-                    <li class="show-all"><a>Show All</a></li>
-                    <li><a>Upload image</a></li>
-                    <li><a>About</a></li>
-                    <li><a onclick="openModal()">Contact</a></li>
+                    <li><a class="menu" id="toggle-menu" onclick="menu-items.classList.add('open');" href="#" hidden>&#9776;</a></li>
+                    <div class="menu-items" id="menu-items">
+                        <li class="show-all"><a>Show All</a></li>
+                        <li><a>Upload image</a></li>
+                        <li><a>About</a></li>
+                        <li><a onclick="openModal()">Contact</a></li>
+                    </div>
                     <!-- href="#open-modal" -->
                     <li class="search">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)"></li>
                 </ul>
