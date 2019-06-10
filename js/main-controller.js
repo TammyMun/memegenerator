@@ -72,8 +72,9 @@ function sendMail(ev) {
     window.open(url);
 }
 
-window.onunload = function() {
-
+function openNavbar(){
+    let elNavbar = document.querySelector('.nav-items');
+    elNavbar.classList.toggle('hidden');
 }
 
 function openModal() {
