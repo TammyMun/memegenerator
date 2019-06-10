@@ -17,24 +17,23 @@ function onInit() {
 }
 
 function renderText(img, element, textIndex) {
-    // gCtx.clearRect(0, 0, canvas.width, canvas.height);
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     gCtx.fillStyle = gTextLines[textIndex].color;
-    // gCtx.textBaseline = 'middle';
     gCtx.font = `${gTextLines[textIndex].fontSize} 'Impact'`;
     gTextLines[textIndex].text = element.value;
     gCtx.strokeStyle = 'black';
     gCtx.lineWidth = 2;
-    gTextLines.forEach((text)=>{
-    if(text.text){
-        if(!text.x && !text.y){
-            text.x = 50
-            text.y = 50
-        }
-        gCtx.fillText(text.text, text.x, text.y);
-        gCtx.strokeText(text.text, text.x, text.y);
-    }
 
+    gTextLines.forEach((text) => {
+        if (text.text) {
+            //CHECK IF TEXT HAS POSITION IF NOT SET DEFAULT
+            if (!text.x && !text.y) {
+                text.x = 50
+                text.y = 50
+            }
+            gCtx.fillText(text.text, text.x, text.y);
+            gCtx.strokeText(text.text, text.x, text.y);
+        }
     })
 }
 
@@ -51,12 +50,12 @@ function draw(ev) {
     ev.stopPropagation();
 
     if (gIsMouseClicked) {
-        
-        if(ev.touches){
+
+        if (ev.touches) {
             ev.offsetX = ev.touches[0].pageX - ev.touches[0].target.offsetLeft;
             ev.offsetY = ev.touches[0].pageY - ev.touches[0].target.offsetTop;
         }
-        
+
         let offsetX = ev.offsetX
         let offsetY = ev.offsetY
 
@@ -76,14 +75,14 @@ function renderCanvas(imgSrc) {
     img = new Image();
     img.src = imgSrc;
 
-    if(window.innerWidth > 980){
+    if (window.innerWidth > 980) {
         gCanvas.width = 980;
         gCanvas.height = 600;
-    } else{
+    } else {
         gCanvas.width = window.innerWidth - 10;
-        gCanvas.height = window.innerHeight/2;
+        gCanvas.height = window.innerHeight / 2;
     }
-    
+
     img.onload = function () {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     }
