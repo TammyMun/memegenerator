@@ -70,10 +70,10 @@ function filterImagesBy(filterWord) {
 
 function image(id, name, src, keywords, thumbnail) {
     this.id = id,
-        this.name = name,
-        this.src = src,
-        this.keywords = keywords,
-        this.thumbnail = thumbnail
+    this.name = name,
+    this.src = src,
+    this.keywords = keywords,
+    this.thumbnail = thumbnail
 }
 
 function updateColor(color, index) {

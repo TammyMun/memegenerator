@@ -18,8 +18,6 @@ function onInit() {
 
 function renderText(img, element, textIndex) {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    gCtx.fillStyle = gTextLines[textIndex].color;
-    gCtx.font = `${gTextLines[textIndex].fontSize} 'Impact'`;
     gTextLines[textIndex].text = element.value;
     gCtx.strokeStyle = 'black';
     gCtx.lineWidth = 2;
@@ -31,6 +29,8 @@ function renderText(img, element, textIndex) {
                 text.x = 50
                 text.y = 50
             }
+            gCtx.font = `${text.fontSize} 'impact'`;
+            gCtx.fillStyle = text.color;
             gCtx.fillText(text.text, text.x, text.y);
             gCtx.strokeText(text.text, text.x, text.y);
         }
