@@ -30,18 +30,17 @@
             </div>
         </header>
 
-        <nav>
-            <div class="container">
+        <nav class="large-nav">
+            <div class="container nav-bar-container">
                 <ul>
-                    <div class="nav-items" id="nav-items" hidden>
+                    <div class="nav-items hidden" id="nav-items">
                         <li><a href="index.html">Gallery</a></li>
                         <li><a>About</a></li>
                         <li><a onclick="openModal()">Contact</a></li>
                     </div>
-                    <li class="search">Search <input class="search-box" list="images" onkeyup="onFilter(this.value)">
+                    <li class="search">Search: <input class="search-box" list="images" onkeyup="onFilter(this.value)">
                     </li>
                 </ul>
-            </div>
         </nav>
 
         <main class="editor-main">

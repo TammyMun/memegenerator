@@ -29,7 +29,7 @@ body {
 
     .search-mobile {
         position: absolute;
-        top: 7px;
+        top: 4px;
         left: 4vw;
         text-transform: uppercase;
         color: #ffbb00;
@@ -701,9 +701,12 @@ input[type=range] {
     nav li {
         margin-left: 20px;
     }
-    .search-box {
-        max-width: 10rem;
-        margin-top: 0; 
+    .search-mobile {
+        position: absolute;
+        top: 4px;
+        left: 4vw;
+        text-transform: uppercase;
+        color: #ffbb00;
     }
 }
 
