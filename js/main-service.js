@@ -5,6 +5,7 @@ let gImgs;
 let gCurrentImage;
 let gCurrentText = {index:0, x:50, y:50};
 let gTextLines = [{text:'Write your meme'}];
+
 //if not in use delete to avoid unnecessary variables
 let gFonts;
 
