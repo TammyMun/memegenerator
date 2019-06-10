@@ -106,7 +106,7 @@ function addInput(elementId) {
         <label for="font-size">Font size</label>
         <input onchange="onResize(this.value, this.id)" type="range" id="font-size-${id}" name="size" min="20" max="100" value="40"step="2">
         <button class="btn add-line-btn" id="line-${id}" onclick="addInput(this.id)">Add line</button>
-        <button onclick="onDeleteLine(${id})" class="btn">Delete</button>
+        <button onclick="onDeleteLine(${id})" class="btn">🗑️</button>
     </div>`
     controlsContainer.innerHTML = strHtml;
 }
@@ -127,15 +127,15 @@ function onChangeColor(color, className) {
     renderText(imgEl, textEditor, indexToChange);
 }
 
-function onDeleteLine(id) {
+function onDeleteLine(elId) {
+    let id = getNumOutOfString(elId);
     let currTextEditor = document.querySelector('#text-editor-' + id);
     currTextEditor.value = '';
-    let currLine = document.getElementById(id);
-    currLine.innerHTML = '';
     // let index = getNumOutOfString(id) - 1;
     // renderText(gCurrentImage.src, currTextEditor, index);
-    // deleteLine(currLine);
-    // renderCanvas(gCurrentImage.src);
+    let currLine = document.getElementById(elId);
+    currLine.innerHTML = '';
+    // might need render indexes func in service
 }
 
 function onResize(value, id) {
